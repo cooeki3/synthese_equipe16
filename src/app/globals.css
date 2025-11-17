@@ -19,6 +19,10 @@ body {
   height: auto;
 }
 
+h1{
+  
+}
+
 @font-face {
   font-family: "CreatoDisplay";
   src: url("/fonts/CreatoDisplay-Regular.otf") format("opentype");

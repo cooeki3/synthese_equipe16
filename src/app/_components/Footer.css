@@ -3,8 +3,8 @@ footer {
   width: 100vw;
   height: 80vh;
   background-color: var(--white-gray);
-  position: absolute;
-  bottom: 0;
+  /* position: absolute;
+  bottom: 0; */
 }
 
 .footer-container {

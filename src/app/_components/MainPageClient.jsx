@@ -13,13 +13,13 @@ import "swiper/css";
 import "../_components/MainPageClient.css"
 import "../_components/Nav.css"
 import "../_components/Footer.css"
-import "../_components/RecemmentPubliees.css"
+import "../_components/RecentlyPublished.css"
 
 
 import Footer from "../_components/Footer.jsx"
 import Nav from "../_components/Nav.jsx"
-import RecemmentPubliees from "../_components/RecemmentPubliees.jsx"
-import ReprendreLecture from "../_components/ReprendreLecture.jsx"
+import RecemmentPubliees from "./RecentlyPublished.jsx"
+import ReprendreLecture from "./KeepReading.jsx"
 
 const MainPageClient = ({ displayName }) => {
   const {

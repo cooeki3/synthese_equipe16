@@ -5,7 +5,7 @@ import { signOut } from "../actions/auth-actions";
 const Nav = () => {
     return (
         <nav className="header-nav">
-            <img className="logo" src="../../../img/logo_inkveil.png" alt="" />
+            <a href="/"><img className="logo" src="../../../img/logo_inkveil.png" alt="" /></a>
 
             <ul className="nav-list">
                 <li>

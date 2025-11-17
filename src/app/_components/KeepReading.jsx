@@ -1,6 +1,6 @@
 "use client";
 
-const ReprendreLecture = () => {
+const KeepReading = () => {
     return (
         <section>
             <h2>Reprenez votre aventure</h2>
@@ -104,7 +104,7 @@ const ReprendreLecture = () => {
     )
 }
 
-export default ReprendreLecture;
+export default KeepReading;
 
 
 
