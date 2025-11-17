@@ -1,82 +1,80 @@
 .story-form-container {
-    width: 100vw;
+  width: 100vw;
 }
 
 .h1-story-form {
-    text-align: center;
-    margin: 30px 0 20px 0;
-    font-size: 55px;
-    font-weight: 700;
+  margin: 30px 0 20px 0;
+  font-weight: 700;
+  font-size: 55px;
+  text-align: center;
 }
 
 .story-form {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    width: 600px;
-    margin: 0 auto 0 auto;
-    background-color: white;
-    border-radius: 25px;
-    border: 1px solid var(--light-gray);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 0 auto;
+  border: 1px solid var(--light-gray);
+  border-radius: 25px;
+  background-color: white;
+  padding: 30px;
+  width: 600px;
 }
 
 .form-input-container {
-    display: flex;
-    flex-direction: column;
-    font-size: 17px;
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  font-size: 17px;
 
-    label {
-        margin-bottom: 10px;
-    }
+  label {
+    margin-bottom: 10px;
+  }
 }
 
 textarea {
-    padding: 20px;
-    background-color: var(--white-gray);
-    border-radius: 15px;
-    border: 1px solid var(--light-gray);
+  border: 1px solid var(--light-gray);
+  border-radius: 15px;
+  background-color: var(--white-gray);
+  padding: 20px;
 
-    &:focus {
-        box-shadow: 0px 0px 25px 2px rgba(188, 97, 254, 0.60);
-    }
+  &:focus {
+    box-shadow: 0px 0px 25px 2px rgba(188, 97, 254, 0.6);
+  }
 }
 
-
 .btn-form {
-    width: 100%;
-    padding: 20px 40px;
-    border-radius: 35px;
-    font-size: 17px;
-    font-weight: 700;
-
+  border-radius: 35px;
+  padding: 20px 40px;
+  width: 100%;
+  font-weight: 700;
+  font-size: 17px;
 }
 
 .btn-form-banner-img {
-    color: white;
-    background-color: var(--primary-text-color);
-    margin-bottom: 30px;
+  margin-bottom: 30px;
+  background-color: var(--primary-text-color);
+  color: white;
 }
 
 .btn-form-add-music {
-    color: var(--primary-text-color);
-    border: 1px solid var(--primary-text-color);
-    position: relative;
+  position: relative;
+  border: 1px solid var(--primary-text-color);
+  color: var(--primary-text-color);
 }
 
 .music-icon {
-    position: absolute;
-    left: 0;
-    padding-left: 20px;
+  position: absolute;
+  left: 0;
+  padding-left: 20px;
 }
 
 .story-form-hr {
-    margin: 50px 0 50px 0;
-    color: var(--light-gray);
+  margin: 50px 0 50px 0;
+  color: var(--light-gray);
 }
 
 .btn-form-continue {
-    color: white;
-    background-color: var(--purple);
-    position: relative;
+  position: relative;
+  background-color: var(--purple);
+  color: white;
 }

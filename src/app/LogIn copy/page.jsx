@@ -1,6 +1,6 @@
 "use client";
 
-import LogInPage from "../_components/LogInPage.jsx"
+import LogInPage from "../_components/SignUpPage.jsx"
 
 const LogIn = () => {
     return (

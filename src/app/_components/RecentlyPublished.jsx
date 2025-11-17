@@ -13,7 +13,7 @@ const RecemmentPubliees = () => {
                                 <img src="../../../img/placeholder.png" className="slide-img" alt="" />
                                 <button className="read-button">
                                     {/* <p>Lire</p> */}
-                                    <BookOpen className='read-icon'/>
+                                    <BookOpen className='read-icon' />
                                 </button>
                             </div>
                             <div className="tags">
@@ -33,7 +33,7 @@ const RecemmentPubliees = () => {
                                 <img src="../../../img/placeholder.png" className="slide-img" alt="" />
                                 <button className="read-button">
                                     {/* <p>Lire</p> */}
-                                 <BookOpen className='read-icon'/>
+                                    <BookOpen className='read-icon' />
                                 </button>
                             </div>
                             <div className="tags">
@@ -54,7 +54,7 @@ const RecemmentPubliees = () => {
                                 <img src="../../../img/placeholder.png" className="slide-img" alt="" />
                                 <button className="read-button">
                                     {/* <p>Lire</p> */}
-                                 <BookOpen className='read-icon'/>
+                                    <BookOpen className='read-icon' />
                                 </button>
                             </div>
                             <div className="tags">
@@ -76,7 +76,7 @@ const RecemmentPubliees = () => {
                                 <img src="../../../img/placeholder.png" className="slide-img" alt="" />
                                 <button className="read-button">
                                     {/* <p>Lire</p> */}
-                                 <BookOpen className='read-icon'/>
+                                    <BookOpen className='read-icon' />
                                 </button>
                             </div>
                             <div className="tags">

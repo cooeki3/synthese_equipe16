@@ -18,7 +18,7 @@ const Nav = () => {
                         S'inscrire
                     </Link>
                 </li>
-                <li>
+                {/* <li>
                     <form action={signOut}>
                         <button
                             type="submit"
@@ -27,7 +27,7 @@ const Nav = () => {
                             Se déconnecter
                         </button>
                     </form>
-                </li>
+                </li> */}
                 <li>
                     {/* <Link href="/auth/signUp" className="btn btn-creer">
                         Créer une histoire

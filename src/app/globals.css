@@ -3,16 +3,18 @@
 :root {
   --primary-text-color: #333333;
   --secondary-text-color: #656565;
-  --light-gray: #B8B8B8;
-  --white-gray: #EBEBEB;
-  --purple: #BC61FE;
+  --light-gray: #b8b8b8;
+  --white-gray: #f5f5f5;
+  --purple: #bc61fe;
+  --translucent-purple: #bd61fe8c;
+  --blue: #5f9eff;
 }
 
 body {
   background: var(--background);
-  color: var(--text-color);
-  font-family: "CreatoDisplay", sans-serif;
   overflow-x: hidden;
+  color: var(--primary-text-color);
+  font-family: "CreatoDisplay", sans-serif;
 }
 
 .page {
@@ -21,36 +23,36 @@ body {
 }
 
 @font-face {
-  font-family: "CreatoDisplay";
-  src: url("/fonts/CreatoDisplay-Regular.otf") format("opentype");
+  font-style: normal;
   font-weight: 400;
-  font-style: normal;
+  src: url("/fonts/CreatoDisplay-Regular.otf") format("opentype");
+  font-family: "CreatoDisplay";
 }
 
 @font-face {
-  font-family: "CreatoDisplay";
-  src: url("/fonts/CreatoDisplay-Bold.otf") format("opentype");
+  font-style: normal;
   font-weight: 700;
-  font-style: normal;
+  src: url("/fonts/CreatoDisplay-Bold.otf") format("opentype");
+  font-family: "CreatoDisplay";
 }
 
 @font-face {
-  font-family: "CreatoDisplay";
-  src: url("/fonts/CreatoDisplay-Medium.otf") format("opentype");
+  font-style: normal;
   font-weight: 500;
-  font-style: normal;
+  src: url("/fonts/CreatoDisplay-Medium.otf") format("opentype");
+  font-family: "CreatoDisplay";
 }
 
 @font-face {
-  font-family: "CreatoDisplay";
-  src: url("/fonts/CreatoDisplay-Light.otf") format("opentype");
+  font-style: normal;
   font-weight: 300;
-  font-style: normal;
+  src: url("/fonts/CreatoDisplay-Light.otf") format("opentype");
+  font-family: "CreatoDisplay";
 }
 
 @font-face {
-  font-family: "CreatoDisplay";
-  src: url("/fonts/CreatoDisplay-Thin.otf") format("opentype");
-  font-weight: 100;
   font-style: normal;
+  font-weight: 100;
+  src: url("/fonts/CreatoDisplay-Thin.otf") format("opentype");
+  font-family: "CreatoDisplay";
 }

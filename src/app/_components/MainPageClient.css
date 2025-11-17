@@ -5,15 +5,6 @@ section {
   padding: 0 150px;
 }
 
-.header-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-items: flex-end;
-  margin-top: 50px;
-
-}
-
 .bg {
   position: absolute;
   top: 0;
@@ -22,9 +13,10 @@ section {
 }
 
 .h1-header {
-  width: 50%;
-  font-size: 100px;
-  font-weight: 700;
   margin: 110px 0;
   padding-left: 150px;
+  width: 50%;
+  color: var(--primary-text-color);
+  font-weight: 700;
+  font-size: 100px;
 }

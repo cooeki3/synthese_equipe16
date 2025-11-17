@@ -6,7 +6,9 @@ import { Background, BackgroundVariant, ReactFlow } from "@xyflow/react";
 import { useGrid } from "../_context/gridContext";
 import { useEffect } from "react";
 import { session } from "@/db/schemas";
+// import useLenis from "../_hooks/useLenis.jsx";
 import Swiper from 'swiper';
+import { useGSAP } from "@gsap/react";
 
 
 import "swiper/css";
@@ -22,6 +24,8 @@ import RecemmentPubliees from "./RecentlyPublished.jsx"
 import ReprendreLecture from "./KeepReading.jsx"
 
 const MainPageClient = ({ displayName }) => {
+  // useLenis();
+  
   const {
     nodes,
     edges,
