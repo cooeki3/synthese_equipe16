@@ -43,7 +43,7 @@ const MainPageClient = ({ displayName }) => {
 
 
   return (
-    <div>
+    <div className="page">
       {/* <h1>Main Page Client</h1>
       <h2>Bienvenue, {displayName}</h2>
       <button
@@ -70,7 +70,7 @@ const MainPageClient = ({ displayName }) => {
       <RecemmentPubliees />
       <hr />
       <ReprendreLecture />
-      <Footer></Footer>
+      <Footer />
 
       {/* <div style={{ width: 1000, height: 1000 }}>
         <ReactFlow
@@ -89,7 +89,6 @@ const MainPageClient = ({ displayName }) => {
           <Background variant={BackgroundVariant.Dots} />
         </ReactFlow>
       </div> */}
-
     </div >
   );
 };
