@@ -32,7 +32,7 @@ const Nav = () => {
                     {/* <Link href="/auth/signUp" className="btn btn-creer">
                         Créer une histoire
                     </Link> */}
-                    <Link href="../_components/AuthForm" className="btn btn-creer">
+                    <Link href="/StoryForm" className="btn btn-creer">
                         Créer une histoire
                     </Link>
                 </li>

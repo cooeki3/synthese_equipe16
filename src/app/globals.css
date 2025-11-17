@@ -5,6 +5,8 @@
   --secondary-text-color: #656565;
   --light-gray: #B8B8B8;
   --white-gray: #EBEBEB;
+  
+  --purple: #BC61FE;
 }
 
 body {
@@ -14,13 +16,9 @@ body {
   overflow-x: hidden;
 }
 
-.page{
+.page {
   width: 100vw;
   height: auto;
-}
-
-h1{
-  
 }
 
 @font-face {

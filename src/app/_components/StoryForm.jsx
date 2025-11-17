@@ -16,29 +16,44 @@ const CreateStory = () => {
 
             <h1 className="h1-story-form">Nouvelle histoire</h1>
             <form className="story-form" >
-                <label for="title">Titre</label>
-            </form>
+                <div className="form-input-container title-input">
+                    <label for="title">Titre</label>
+                    <textarea
+                        id="title"
+                        className="title"
+                        placeholder="Écrire..."
+                        required
+                        rows={1} 
+                    ></textarea>
+                </div>
+                <div className="form-input-container synopsis-input">
+                    <label for="synopsis">Synopsis</label>
+                    <textarea
+                        id="synopsis"
+                        placeholder="Écrire..."
+                        required
+                        rows={3} 
+                    ></textarea>
+                </div>
 
-
-
-            {/* <form class="story-creation">
-                <label for="title">Titre</label>
-                <input id="title" name="title" type="text" placeholder="Écrire..." required ></input>
-
-                <label for="synopsis">Synopsis</label>
-                <textarea id="synopsis" name="synopsis" placeholder="Écrire..." rows="4"></textarea>
-
-                <button type="button" class="banner-btn">Choisir une image de bannière</button>
-                <button type="button" class="music-btn">
-                    <span class="icon">🎵</span>
+                <button className="btn-form btn-form-banner-img" >
+                    Choisir une image de bannière
+                </button>
+                <button className="btn-form btn-form-add-music" >
+                    <span className="material-symbols-outlined music-icon">
+                        music_note
+                    </span>
                     Ajouter une musique
                 </button>
 
-                <div class="divider"></div>
-                <button type="submit" class="continue-btn">Continuer</button>
-            </form> */}
+                <hr className="story-form-hr" />
+
+                <button className="btn-form btn-form-continue" >
+                    Continuer
+                </button>
 
 
+            </form>
             <div>
             </div>
             {/* <Footer /> */}
