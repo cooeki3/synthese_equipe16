@@ -1,7 +1,7 @@
 import {signOut} from "../../actions/auth-actions";
 import HistoireTemp from "../../_components/HistoireTemp";
 
-const HistoiresUtilisateurs = ({displayName}) => {
+const Utilisateurs = ({displayName}) => {
     return (
 
         <div>
@@ -29,5 +29,5 @@ const HistoiresUtilisateurs = ({displayName}) => {
         </div>
     );
 }
-export default HistoiresUtilisateurs;
+export default Utilisateurs;
             
