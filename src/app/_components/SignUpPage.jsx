@@ -32,24 +32,23 @@ const UserAccountPage = ({
                     {showName && (
                         <div className="form-input-container">
                             <label htmlFor="fld_name">Nom complet</label>
-                            <textarea
+                            <input
                                 id="fld_name"
                                 name="name"
                                 placeholder="Entrez votre nom"
                                 required
-                                rows={1}
-                            ></textarea>
+                            ></input>
                         </div>
                     )}
                     <div className="form-input-container">
                         <label htmlFor="fld_email">Adresse courriel</label>
-                        <textarea
+                        <input
                             id="fld_email"
                             name="email"
                             placeholder="exemple@email.com"
                             required
                             rows={1}
-                        ></textarea>
+                        ></input>
                     </div>
                     <div className="form-input-container">
                         <label htmlFor="fld_password">Mot de passe</label>
