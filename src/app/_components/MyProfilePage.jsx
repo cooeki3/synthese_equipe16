@@ -30,15 +30,15 @@ const MyProfilePage = () => {
             <img className="bg" src="../../../img/blue-purple_gradient.png" alt="" />
             <Nav />
 
-<div className="profile-container">
-   <img className="profile-picture" src="../../../img/blue-purple_gradient.png" alt="" />
-   <h2 className="profile-name">Émilie Paquin</h2>
-</div>
+            <div className="profile-container">
+                <img className="profile-picture" src="../../../img/blue-purple_gradient.png" alt="" />
+                <h2 className="profile-name">Émilie Paquin</h2>
+            </div>
 
 
 
             <div className="swiper-container">
-            <h2 className="swiper-h2">Récits partagés</h2>
+                <h2 className="swiper-h2">Récits partagés</h2>
                 <div className="swiper">
                     <div className="swiper-wrapper">
                         {/*Slide 1 */}
@@ -46,10 +46,12 @@ const MyProfilePage = () => {
                             <div className="card">
                                 <div className="img-container">
                                     <img src="../../../img/placeholder.png" className="slide-img" alt="" />
-                                    <button className="read-button">
-                                        {/* <p>Lire</p> */}
-                                        <BookOpen className='read-icon' />
-                                    </button>
+                                    <div className="button-container">
+                                        <button className="btn btn-read">
+                                            Lire
+                                        </button>
+                                        <button className="btn btn-modify" >Modifier</button>
+                                    </div>
                                 </div>
                                 <div className="tags">
                                     <span>Vampire</span>

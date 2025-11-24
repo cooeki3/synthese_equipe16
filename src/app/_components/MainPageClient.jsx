@@ -12,11 +12,11 @@ import Swiper from 'swiper';
 import { useGSAP } from "@gsap/react";
 
 
-import "swiper/css";
 import "../_components/MainPageClient.css"
 import "../_components/Nav.css"
 import "../_components/Footer.css"
 import "../_components/RecentlyPublished.css"
+import "swiper/css";
 import "../_components/Swiper.css"
 
 

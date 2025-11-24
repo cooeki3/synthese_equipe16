@@ -1,6 +1,6 @@
 /* ----------Header----------- */
-section {
-  padding: 0 150px;
+h2{
+  margin-left: 7.5vw;
 }
 
 .bg {
@@ -11,8 +11,7 @@ section {
 }
 
 .h1-header {
-  margin: 110px 0;
-  padding-left: 150px;
+  margin: 110px 0 140px 7.5vw;
   width: 50%;
   color: var(--primary-text-color);
   font-weight: 700;

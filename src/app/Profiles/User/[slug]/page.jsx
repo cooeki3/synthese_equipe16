@@ -1,6 +1,6 @@
 "use client";
 
-import AccountPage from "../../_components/AccountPage.jsx"
+import AccountPage from "../../../_components/AccountPage.jsx"
 
 const Account = () => {
     return (

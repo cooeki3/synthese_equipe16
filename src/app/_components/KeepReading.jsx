@@ -8,7 +8,7 @@ const KeepReading = () => {
                 <div className="swiper">
                     <div className="swiper-wrapper">
                         {/*Slide 1 */}
-                        <div className="swiper-slide">
+                        <div className="swiper-slide swiper-slide-1">
                             <div className="card">
                                 <div className="img-container">
                                     <img src="../../../img/placeholder.png" className="slide-img" alt="" />
