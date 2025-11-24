@@ -42,7 +42,7 @@ const storyModificationPage = () => {
         <div className="bg-grid"></div>
 
         <button className="delete-icon">
-          </button>
+        </button>
         <button className="add-icon"></button>
 
       </div>
