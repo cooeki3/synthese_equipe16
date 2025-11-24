@@ -6,7 +6,7 @@ import { eq } from "drizzle-orm";
 export async function getHistoires() {
     const histoiresList = await db.select().from(Histoires);
     return histoiresList;
-}
+}   
 
 export async function getHistoireById(id) {
     const [row] = await db.select().from(Histoires).where(eq(Histoires.id, id));
