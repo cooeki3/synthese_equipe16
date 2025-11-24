@@ -1,5 +1,5 @@
-import {signOut} from "../../actions/auth-actions";
-import HistoireTemp from "../../_components/HistoireTemp";
+import {signOut} from "@/app/actions/auth-actions";
+import HistoireTemp from "@/app/_components/HistoireTemp";
 
  const auteur = ({displayName}) => {
     return (

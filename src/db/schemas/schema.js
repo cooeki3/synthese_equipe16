@@ -5,8 +5,7 @@ export const Histoires = sqliteTable("histoires", {
   id: text("id").primaryKey(),
   title: text("title").notNull(),
   synopsis : text("synopsis").notNull(),
-  creator_id: text("creator_id").notNull(),
-  createdAt: integer("created_at", { mode: "timestamp_ms" }).notNull(),
+  creator_id: text("creator_id"),
   theme : text("theme"),
   musique : text("musique"),
   animation : text("animation")

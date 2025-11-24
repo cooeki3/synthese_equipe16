@@ -1,35 +1,36 @@
 import "server-only";
 import { db } from "@/db";
-import { histoires } from "@/db/schema/histoires";
+import { Histoires } from "@/db/schemas/schema";
 import { eq } from "drizzle-orm";
 
 export async function getHistoires() {
-    const histoiresList = await db.select().from(histoires);
+    const histoiresList = await db.select().from(Histoires);
     return histoiresList;
 }
 
-export async function ajouterHistoires( histoire) {
+export async function ajouterHistoires(histoire) {
     try {
-    await db.insert(histoires).values({
-        id: histoire.id,
-        titre: histoire.titre,
-        synopsis: histoire.synopsis,
-        banniere: histoire.banniere,
-        musique: histoire.musique,
-        creator_id: histoire.creator_id
-    });
-} catch (error) {
-    console.error("Erreur lors de l'ajout de l'histoire :", error);
-    throw error;
-}
+        console.log("ajouterHistoires: objet reçu =>", histoire);
+        const result = await db.insert(Histoires).values({
+            id: histoire.id,
+            title: histoire.titre,
+            synopsis: histoire.synopsis,
+            theme: histoire.banniere || null,
+            musique: histoire.musique || null,
+            creator_id: histoire.creator_id || null,
+        });
+        console.log("ajouterHistoires: insertion effectuée =>", result);
+    } catch (error) {
+        console.error("Erreur lors de l'ajout de l'histoire :", error);
+        throw error;
+    }
 }
 
 export async function deleteHistoire(id) {
     try {
-    await db.delete(histoires).where(eq(histoires.id, id));
-    
-} catch (error) {
-    console.error("Erreur lors de la suppression de l'histoire :", error);
-    throw error;
-}
+        await db.delete(Histoires).where(eq(Histoires.id, id));
+    } catch (error) {
+        console.error("Erreur lors de la suppression de l'histoire :", error);
+        throw error;
+    }
 }
