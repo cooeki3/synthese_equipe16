@@ -8,7 +8,7 @@ import "../_components/StoryFormPage.css"
 import Footer from "./Footer.jsx"
 import Nav from "./Nav.jsx"
 
-const StoryFormPage = ({ formAction }) => {
+const StoryFormPage = ({ formAction, initial = {} }) => {
     return (
         <div className="story-form-container">
             <img className="bg" src="../../../img/blue-purple_gradient.png" alt="" />
@@ -16,6 +16,9 @@ const StoryFormPage = ({ formAction }) => {
 
             <h1 className="h1-story-form">Nouvelle histoire</h1>
             <form className="story-form" action={formAction}>
+                {initial.id && (
+                    <input type="hidden" name="id" value={initial.id} />
+                )}
                 
                 <div className="form-input-container title-input">
                     <label htmlFor="title">Titre</label>
@@ -26,6 +29,7 @@ const StoryFormPage = ({ formAction }) => {
                         placeholder="Écrire..."
                         required
                         rows={1}
+                        defaultValue={initial.titre || ''}
                     ></textarea>
                 </div>
                 <div className="form-input-container synopsis-input">
@@ -36,6 +40,7 @@ const StoryFormPage = ({ formAction }) => {
                         placeholder="Écrire..."
                         required
                         rows={3}
+                        defaultValue={initial.synopsis || ''}
                     ></textarea>
                 </div>
 
@@ -54,6 +59,7 @@ const StoryFormPage = ({ formAction }) => {
                 <button className="btn-form btn-form-continue"
                     type="submit"
                     name="continuer">
+
                         
                     Continuer
                     

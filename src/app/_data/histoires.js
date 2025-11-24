@@ -8,6 +8,11 @@ export async function getHistoires() {
     return histoiresList;
 }
 
+export async function getHistoireById(id) {
+    const [row] = await db.select().from(Histoires).where(eq(Histoires.id, id));
+    return row || null;
+}
+
 export async function ajouterHistoires(histoire) {
     try {
         console.log("ajouterHistoires: objet reçu =>", histoire);
@@ -18,6 +23,7 @@ export async function ajouterHistoires(histoire) {
             theme: histoire.banniere || null,
             musique: histoire.musique || null,
             creator_id: histoire.creator_id || null,
+            createdAt: Date.now(),
         });
         console.log("ajouterHistoires: insertion effectuée =>", result);
     } catch (error) {
@@ -31,6 +37,22 @@ export async function deleteHistoire(id) {
         await db.delete(Histoires).where(eq(Histoires.id, id));
     } catch (error) {
         console.error("Erreur lors de la suppression de l'histoire :", error);
+        throw error;
+    }
+}
+
+export async function updateHistoire(id, payload) {
+    try {
+        const result = await db.update(Histoires).set({
+            title: payload.titre,
+            synopsis: payload.synopsis,
+            theme: payload.banniere || null,
+            musique: payload.musique || null,
+        }).where(eq(Histoires.id, id));
+
+        return result;
+    } catch (error) {
+        console.error("Erreur lors de la mise à jour de l'histoire :", error);
         throw error;
     }
 }
