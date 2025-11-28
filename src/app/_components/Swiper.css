@@ -7,21 +7,14 @@
   margin-left: 7.5vw;
 }
 
-.swiper-container {
-  width: 100vw;
-}
-
 .swiper-slide {
   width: 670px;
   height: 600px;
+  cursor: pointer;
 }
 
-.swiper-slide-1 {
+.swiper-first-slide {
   margin-left: 7.5vw;
-}
-
-.card {
-  position: relative;
 }
 
 .img-container {

@@ -13,8 +13,10 @@ import Nav from "./Nav.jsx"
 import { X } from 'lucide-react';
 import { Music3 } from 'lucide-react';
 
-const StoryFormPage = () => {
+//TODO: Intégrer la logique de la création de l'histoire (Titre, synopsis, image de bannière, musique).
+//TODO (APRÈS L'ALPHA) : Pouvoir téléverser une image de bannière et/ou musique.
 
+const StoryFormPage = () => {
     const [bannerIsOpen, setBannerIsOpen] = useState(false);
     const [musicIsOpen, setMusicIsOpen] = useState(false);
     const bannerPopupRef = useRef();
@@ -64,13 +66,13 @@ const StoryFormPage = () => {
             <form className="story-form" >
                 <div className="form-input-container title-input">
                     <label htmlFor="title">Titre</label>
-                    <textarea
+                    <input
                         id="title"
                         className="title"
                         placeholder="Écrire..."
                         // required
                         rows={1}
-                    ></textarea>
+                    ></input>
                 </div>
                 <div className="form-input-container synopsis-input">
                     <label htmlFor="synopsis">Synopsis</label>
@@ -93,12 +95,25 @@ const StoryFormPage = () => {
                             </button>
                             <h2 className="">Parcourir la banque d’images</h2>
                             <div className="banner-grid" >
-                                <img className="" src="../../../img/blue-purple_gradient.png" alt="" />
-                                <img className="" src="../../../img/blue-purple_gradient.png" alt="" />
-                                <img className="" src="../../../img/blue-purple_gradient.png" alt="" />
-                                <img className="" src="../../../img/blue-purple_gradient.png" alt="" />
-                                <img className="" src="../../../img/blue-purple_gradient.png" alt="" />
-                                <img className="" src="../../../img/blue-purple_gradient.png" alt="" />
+                                <div className="img-wrapper">
+                                    <img className="" src="../../../img/banniere_1.jpg" alt="" />
+                                </div>
+                                <div className="img-wrapper">
+                                    <img className="" src="../../../img/banniere_2.jpg" alt="" />
+                                </div>
+                                <div className="img-wrapper">
+                                    <img className="" src="../../../img/banniere_3.jpg" alt="" />
+                                </div>
+                                <div className="img-wrapper">
+                                    <img className="" src="../../../img/banniere_4.jpg" alt="" />
+                                </div>
+                                <div className="img-wrapper">
+                                    <img className="" src="../../../img/banniere_5.jpg" alt="" />
+                                </div>
+                                <div className="img-wrapper">
+                                    <img className="" src="../../../img/banniere_6.jpg" alt="" />
+                                </div>
+
                             </div>
                             <hr className="popup-banner-hr" />
                             <button className="btn-popup">Téléverser à partir de l'appareil</button>
@@ -124,19 +139,19 @@ const StoryFormPage = () => {
                                     <div className="icon">
                                         <Music3 />
                                     </div>
-                                    <div className="music-title">Ambiance horreur</div> <div className="music-length">3:40</div>
+                                    <div className="music-title">Ambiance d'horreur</div> <div className="music-length">1:22</div>
                                 </button>
                                 <button className="music-button">
                                     <div className="icon">
                                         <Music3 />
                                     </div>
-                                    <div className="music-title">Ambiance horreur</div> <div className="music-length">3:40</div>
+                                    <div className="music-title">Ambiance médiéval</div> <div className="music-length">3:30</div>
                                 </button>
                                 <button className="music-button" >
                                     <div className="icon">
                                         <Music3 />
                                     </div>
-                                    <div className="music-title">Ambiance horreur</div> <div className="music-length">3:40</div>
+                                    <div className="music-title">Ambiance de magie</div> <div className="music-length">1:41</div>
                                 </button>
                             </div>
                             <hr className="popup-banner-hr" />

@@ -7,10 +7,8 @@
   margin-top: 40px;
   position: relative;
   width: 85vw;
-  margin: 40px auto 0 auto;
+  margin: 40px auto;
 }
-
-
 
 .nav-list {
   display: flex;
@@ -25,7 +23,7 @@
   cursor: pointer;
   border: none;
   background: none;
-  font-size: 19px;
+  font-size: 17px;
 }
 
 .logo {
@@ -37,4 +35,20 @@
   background-color: var(--primary-text-color);
   padding: 12px 20px;
   color: white;
+}
+
+.account-icon {
+  img {
+    width: 30px;
+  }
+}
+
+.account-name {
+  font-weight: 700;
+}
+
+.account-flex-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

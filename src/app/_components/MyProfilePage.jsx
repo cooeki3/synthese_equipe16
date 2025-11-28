@@ -14,13 +14,18 @@ import "../_components/Swiper.css"
 import Swiper from 'swiper';
 import "swiper/css";
 
+//TODO: Afficher dynamiquement le nom et la photo de profil de l'utilisateur.
+//TODO: Intégrer la logique pour afficher les récits partagés de l'utilisateur.
+//TODO: Intégrer la logique pour les boutons modifier et lire (rediriger vers la bonne page).
+
 const MyProfilePage = () => {
     useEffect(() => {
         const swiper = new Swiper('.swiper', {
             slidesPerView: 2.5,
             spaceBetween: 30,
-            speed: 50,
-            freeMode: true
+            speed: 400,
+            grabCursor: true,
+            slidesOffsetAfter: 200
         });
 
     }, []);
@@ -31,18 +36,16 @@ const MyProfilePage = () => {
             <Nav />
 
             <div className="profile-container">
-                <img className="profile-picture" src="../../../img/blue-purple_gradient.png" alt="" />
+                <img className="profile-picture" src="../../../img/account_icon.svg" alt="" />
                 <h2 className="profile-name">Émilie Paquin</h2>
             </div>
-
-
 
             <div className="swiper-container">
                 <h2 className="swiper-h2">Récits partagés</h2>
                 <div className="swiper">
                     <div className="swiper-wrapper">
                         {/*Slide 1 */}
-                        <div className="swiper-slide swiper-slide-1">
+                        <div className="swiper-slide swiper-first-slide">
                             <div className="card">
                                 <div className="img-container">
                                     <img src="../../../img/placeholder.png" className="slide-img" alt="" />
@@ -104,7 +107,7 @@ const MyProfilePage = () => {
                             </div>
                         </div>
                         {/* Slide 4 */}
-                        <div className="swiper-slide">
+                        <div className="swiper-slide swiper-last-slide">
                             <div className="card">
                                 <div className="img-container">
                                     <img src="../../../img/placeholder.png" className="slide-img" alt="" />

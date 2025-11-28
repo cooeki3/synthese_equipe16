@@ -3,12 +3,12 @@ import { BookOpen } from 'lucide-react';
 const KeepReading = () => {
     return (
         <section>
-            <h2>Reprenez votre aventure</h2>
+            <h2 className='section-title'>Reprenez votre aventure</h2>
             <div className="swiper-container">
                 <div className="swiper">
                     <div className="swiper-wrapper">
                         {/*Slide 1 */}
-                        <div className="swiper-slide swiper-slide-1">
+                        <div className="swiper-slide swiper-first-slide">
                             <div className="card">
                                 <div className="img-container">
                                     <img src="../../../img/placeholder.png" className="slide-img" alt="" />
@@ -68,7 +68,7 @@ const KeepReading = () => {
                             </div>
                         </div>
                         {/* Slide 4 */}
-                        <div className="swiper-slide">
+                        <div className="swiper-slide swiper-last-slide">
                             <div className="card">
                                 <div className="img-container">
                                     <img src="../../../img/placeholder.png" className="slide-img" alt="" />

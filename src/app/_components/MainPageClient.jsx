@@ -24,6 +24,10 @@ import Footer from "../_components/Footer.jsx"
 import Nav from "../_components/Nav.jsx"
 import RecemmentPubliees from "./RecentlyPublished.jsx"
 import ReprendreLecture from "./KeepReading.jsx"
+ 
+
+
+//TODO: Intégrer la logique pour afficher les histoires à reprendre (Tags, bannière, titre et synopsis)(ou ne pas l'afficher si l'utilisateur n'a jamais lu d'histoire et/ou il n'est pas connceté).
 
 const MainPageClient = ({ displayName }) => {
   // useLenis();
@@ -44,8 +48,9 @@ const MainPageClient = ({ displayName }) => {
     const swiper = new Swiper('.swiper', {
       slidesPerView: 2.5,
       spaceBetween: 30,
-      speed: 50,
-      freeMode: true
+      speed: 400,
+      grabCursor: true,
+      slidesOffsetAfter: 200
     });
 
   }, []);

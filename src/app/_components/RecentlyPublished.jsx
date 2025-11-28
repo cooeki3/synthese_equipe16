@@ -4,12 +4,12 @@ import { BookOpen } from 'lucide-react';
 const RecemmentPubliees = () => {
     return (
         <section>
-            <h2>Récemment publiées</h2>
+            <h2 className='section-title'>Récemment publiées</h2>
             <div className="swiper-container">
                 <div className="swiper">
                     <div className="swiper-wrapper">
                         {/*Slide 1 */}
-                        <div className="swiper-slide swiper-slide-1">
+                        <div className="swiper-slide swiper-first-slide">
                             <div className="card">
                                 <div className="img-container">
                                     <img src="../../../img/placeholder.png" className="slide-img" alt="" />
@@ -69,7 +69,7 @@ const RecemmentPubliees = () => {
                             </div>
                         </div>
                         {/* Slide 4 */}
-                        <div className="swiper-slide">
+                        <div className="swiper-slide swiper-last-slide">
                             <div className="card">
                                 <div className="img-container">
                                     <img src="../../../img/placeholder.png" className="slide-img" alt="" />
