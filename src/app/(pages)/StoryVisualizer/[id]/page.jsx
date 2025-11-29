@@ -1,6 +1,6 @@
 "use client";
 
-import StoryVisualizerPage from "../../_components/StoryVisualizerPage.jsx"
+import StoryVisualizerPage from "../../../_components/StoryVisualizerPage.jsx"
 
 const StoryVisualizer = () => {
     return (
