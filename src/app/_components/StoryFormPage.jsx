@@ -14,7 +14,8 @@ import { X } from 'lucide-react';
 import { Music3 } from 'lucide-react';
 
 //TODO: Intégrer la logique de la création de l'histoire (Titre, synopsis, image de bannière, musique).
-//TODO (APRÈS L'ALPHA) : Pouvoir téléverser une image de bannière et/ou musique.
+//TODO: (APRÈS L'ALPHA) : Pouvoir téléverser une image de bannière et/ou musique.
+//TODO (ALEX): (APRÈS L'ALPHA) : Créer la page de téléversement d'images/musiques.
 
 const StoryFormPage = () => {
     const [bannerIsOpen, setBannerIsOpen] = useState(false);
