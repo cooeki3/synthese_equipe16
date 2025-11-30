@@ -12,4 +12,13 @@
   margin: 60px auto;
   width: auto;
   border: solid 1px var(--texte-histoire);
+  border-radius: 25px;
+  font-size: 18px;
+  display: flex;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--texte-histoire);
+    color: white;
+  }
 }
