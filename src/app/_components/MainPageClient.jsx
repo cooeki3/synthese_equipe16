@@ -6,7 +6,7 @@ import { Background, BackgroundVariant, ReactFlow } from "@xyflow/react";
 import { useGrid } from "../_context/gridContext";
 import { useEffect, useState } from "react";
 import { session } from "@/db/schemas";
-// import useLenis from "../_hooks/useLenis.jsx";
+import useLenis from "../_hooks/useLenis.jsx";
 import HistoireTemp from "./HistoireTemp";
 import Swiper from 'swiper';
 import { useGSAP } from "@gsap/react";
@@ -30,7 +30,7 @@ import ReprendreLecture from "./KeepReading.jsx"
 //TODO: Intégrer la logique pour afficher les histoires à reprendre (Tags, bannière, titre et synopsis)(ou ne pas l'afficher si l'utilisateur n'a jamais lu d'histoire et/ou il n'est pas connceté).
 
 const MainPageClient = ({ displayName }) => {
-  // useLenis();
+  useLenis();
 
   const {
     nodes,

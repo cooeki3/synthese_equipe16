@@ -15,15 +15,16 @@ gsap.registerPlugin(useGSAP, ScrollTrigger, CustomEase);
 const Nav = () => {
     const pathname = usePathname();
     var isVisualizerPage = pathname.includes("StoryVisualizer");
-
     useGSAP(() => {
-        const showAnim = gsap.from('.header-nav', {
-            yPercent: -100,
+        const nav = document.querySelector('.header-nav');
+        const showAnim = gsap.from(nav, {
+            yPercent: -120,
             paused: true,
-            duration: 0.2
+            duration: 0
         }).progress(1);
 
         ScrollTrigger.create({
+            trigger: ".header-nav",
             start: "top top",
             end: 99999,
             onUpdate: (self) => {
@@ -32,65 +33,70 @@ const Nav = () => {
         });
 
         ScrollTrigger.create({
-            trigger: ".blue",
+            trigger: ".header-nav",
             start: "top top",
-            end: "+=10",
-            onEnter: () => gsap.to(".header-wrapper", { height: 80, duration: 0.2 }),
-            onLeaveBack: () => gsap.to(".header-wrapper", { height: 180, duration: 0.2 }),
+            end: 99999,
+            onUpdate: () => {
+                nav.classList.toggle('is-not-at-top', window.scrollY > 20);
+            },
             markers: true,
         });
     }, []);
+
 
     return (
         <nav className="header-nav">
             {/* /////////////////////////////VERSION DÉCONNECTÉ////////////////////////////////// */}
 
-            <a href="/"><img className="logo" src={isVisualizerPage ? "../../../img/logo_inkveil_white.png" : "../../../img/logo_inkveil.png"} alt="" /></a>
-            <ul className="nav-list">
-                <li >
-                    <Link href="/auth/signIn" className={isVisualizerPage ? "btn-nav btn-compte white" : "btn-nav btn-compte"}>
-                        Se connecter
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/auth/signUp" className={isVisualizerPage ? "btn-nav btn-compte white" : "btn-nav btn-compte"}>
-                        S'inscrire
-                    </Link>
-                    {/* btn-nav btn-compte  */}
-                </li>
-                <li>
-                    <Link href="/auth/signUp" className={isVisualizerPage ? "btn-nav btn-create white" : "btn-nav btn-create"}>
-                        Créer une histoire
-                    </Link>
-                </li>
-            </ul>
+            <div className="header-nav-flex-container">
+                <a href="/"><img className="logo" src={isVisualizerPage ? "../../../img/logo_inkveil_white.png" : "../../../img/logo_inkveil.png"} alt="" /></a>
+                <ul className="nav-list">
+                    <li >
+                        <Link href="/auth/signIn" className={isVisualizerPage ? "btn-nav btn-compte white" : "btn-nav btn-compte"}>
+                            Se connecter
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/auth/signUp" className={isVisualizerPage ? "btn-nav btn-compte white" : "btn-nav btn-compte"}>
+                            S'inscrire
+                        </Link>
+                        {/* btn-nav btn-compte  */}
+                    </li>
+                    <li>
+                        <Link href="/auth/signUp" className={isVisualizerPage ? "btn-nav btn-create white" : "btn-nav btn-create"}>
+                            Créer une histoire
+                        </Link>
+                    </li>
+                </ul>
+            </div>
             {/* /////////////////////////////VERSION CONNECTÉ////////////////////////////////// */}
             {/* 
-            <a href="/"><img className="logo" src="../../../img/logo_inkveil.png" alt="" /></a>
-
-            <ul className="nav-list">
-                <li className="account-flex-container">
-                    <Link href="/profiles/MyProfile" className="btn-nav account-name">
-                        Emilie Paquin
-                    </Link>
-
-                    <Link href="/profiles/MyProfile" className="btn-nav account-icon">
-                        <img src="../../../img/account_icon.svg" alt="" />
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/" className="btn-nav btn-compte">
-                        <LogoutIcon
-                            sx={{ fontSize: 30 }}
-                        />
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/StoryForm" className="btn-nav btn-creer">
-                        Créer une histoire
-                    </Link>
-                </li>
-            </ul>*/}
+            <div className="header-nav-flex-container">
+                <a href="/"><img className="logo" src="../../../img/logo_inkveil.png" alt="" /></a>
+                <ul className="nav-list">
+                    <li className="account-flex-container">
+                        <Link href="/profiles/MyProfile" className="btn-nav account-name">
+                            Emilie Paquin
+                        </Link>
+                        <Link href="/profiles/MyProfile" className="btn-nav account-icon">
+                            <img src="../../../img/account_icon.svg" alt="" />
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/" className="btn-nav btn-compte">
+                            <LogoutIcon
+                                sx={{ fontSize: 30 }}
+                            />
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/StoryForm" className="btn-nav btn-creer">
+                            Créer une histoire
+                        </Link>
+                    </li>
+                </ul>
+            </div>
+        */}
         </nav >
     )
 }
