@@ -9,8 +9,7 @@ const StoryForm = async () => {
   //   redirect("/auth/signIn");
   // }
 
-   return <StoryFormPage formAction={createStory}  />;
-  //  user={session.user}
+  return <StoryFormPage formAction={createStory}  />;
 };
 
 export default StoryForm;

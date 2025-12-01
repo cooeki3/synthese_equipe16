@@ -8,8 +8,8 @@
 }
 
 .story-text {
-    transform-style: preserve-3d;
-   perspective: 1000px;
+  transform-style: preserve-3d;
+  perspective: 1000px;
   margin: 200 auto 0 auto;
   width: 80vw;
   color: white;
@@ -28,6 +28,7 @@
   width: auto;
   color: white;
   font-size: 18px;
+
   &:hover {
     background-color: white;
     color: var(--texte-histoire);
@@ -44,6 +45,7 @@
   border-radius: 25px;
   padding: 10px 20px;
   color: white;
+
   &:hover {
     background-color: white;
     color: var(--texte-histoire);

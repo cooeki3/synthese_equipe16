@@ -17,6 +17,7 @@ import {
   deleteNodeAndEdges,
   deleteEdge,
 } from "@/app/actions/story-actions";
+import { usePathname } from 'next/navigation'
 
 import "../_components/Nav.css";
 import "../_components/Footer.css";
@@ -69,9 +70,9 @@ const StoryEditorPage = ({ story }) => {
       const updatedNodes = nodes.map((n) =>
         n.id === id
           ? {
-              ...n,
-              data: { ...n.data, label: choiceTitle, body: nodeText, isEnding },
-            }
+            ...n,
+            data: { ...n.data, label: choiceTitle, body: nodeText, isEnding },
+          }
           : n
       );
       setNodesState(updatedNodes);
@@ -86,11 +87,11 @@ const StoryEditorPage = ({ story }) => {
       const updatedEdges = edges.map((e) =>
         e.id === id
           ? {
-              ...e,
-              label: choiceTitle,
-              data: { ...e.data, edgeType, historyKey },
-              edgeType,
-            }
+            ...e,
+            label: choiceTitle,
+            data: { ...e.data, edgeType, historyKey },
+            edgeType,
+          }
           : e
       );
       setEdgesState(updatedEdges);
