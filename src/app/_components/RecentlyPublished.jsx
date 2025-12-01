@@ -29,9 +29,8 @@ const RecemmentPubliees = ({ stories = [] }) => {
           <div className="swiper-wrapper">
             {stories.map((story, index) => (
               <div
-                className={`swiper-slide ${
-                  index === 0 ? "swiper-first-slide" : ""
-                } ${index === stories.length - 1 ? "swiper-last-slide" : ""}`}
+                className={`swiper-slide ${index === 0 ? "swiper-first-slide" : ""
+                  } ${index === stories.length - 1 ? "swiper-last-slide" : ""}`}
                 key={story.id}
               >
                 <div className="card">
@@ -41,13 +40,16 @@ const RecemmentPubliees = ({ stories = [] }) => {
                       className="slide-img"
                       alt=""
                     />
-                    <Link
-                      href={`/storyVisualizer/${story.id}`}
-                      className="read-button"
-                      aria-label={`Lire ${story.title}`}
-                    >
-                      <BookOpen className="read-icon" />
-                    </Link>
+                    <div className="swiper-buttons-flex-container">
+                      <Link
+                        href={`/storyVisualizer/${story.id}`}
+                        className="read-button"
+                        aria-label={`Lire ${story.title}`}
+                      >
+                        <p>Lire</p>
+                        <BookOpen className="read-icon" />
+                      </Link>
+                    </div>
                   </div>
                   <div className="tags">
                     <span>{story.theme || "Public"}</span>
