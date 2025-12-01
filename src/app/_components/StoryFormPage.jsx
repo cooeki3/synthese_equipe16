@@ -64,11 +64,16 @@ const StoryFormPage = () => {
             <Nav />
 
             <h1 className="h1-story-form">Nouvelle histoire</h1>
-            <form className="story-form" >
+            <form className="story-form" action={formAction}>
+                {initial.id && (
+                    <input type="hidden" name="id" value={initial.id} />
+                )}
+                
                 <div className="form-input-container title-input">
                     <label htmlFor="title">Titre</label>
                     <input
                         id="title"
+                        name="titre"
                         className="title"
                         placeholder="Écrire..."
                         // required
@@ -79,9 +84,11 @@ const StoryFormPage = () => {
                     <label htmlFor="synopsis">Synopsis</label>
                     <textarea
                         id="synopsis"
+                        name="synopsis"
                         placeholder="Écrire..."
                         // required
                         rows={3}
+                        defaultValue={initial.synopsis || ''}
                     ></textarea>
                 </div>
 
