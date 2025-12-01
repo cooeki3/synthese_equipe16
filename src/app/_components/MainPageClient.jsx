@@ -2,8 +2,19 @@
 import "@xyflow/react/dist/style.css";
 import { Background, BackgroundVariant, ReactFlow } from "@xyflow/react";
 import { useGrid } from "../_context/gridContext";
-import { useEffect } from "react";
-import Swiper from "swiper";
+import { useEffect, useState } from "react";
+import { session } from "@/db/schemas";
+import useLenis from "../_hooks/useLenis.jsx";
+import HistoireTemp from "./HistoireTemp";
+import Swiper from 'swiper';
+import { useGSAP } from "@gsap/react";
+import { usePathname } from 'next/navigation'
+
+
+import "../_components/MainPageClient.css"
+import "../_components/Nav.css"
+import "../_components/Footer.css"
+import "../_components/RecentlyPublished.css"
 import "../_components/MainPageClient.css";
 import "../_components/Nav.css";
 import "../_components/Footer.css";

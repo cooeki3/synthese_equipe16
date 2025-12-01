@@ -4,9 +4,17 @@ import { useEffect, useState } from "react";
 import { signOut } from "../actions/auth-actions";
 import LogoutIcon from "@mui/icons-material/Logout";
 
+import gsap from "gsap";
+import { CustomEase } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { usePathname } from 'next/navigation'
+gsap.registerPlugin(useGSAP, ScrollTrigger, CustomEase);
+
 // TODO: Afficher dynamiquement la photo de profil (fallback sur account_icon si GitHub absent).
 const Nav = ({ user: initialUser }) => {
   const [user, setUser] = useState(initialUser ?? null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (initialUser !== undefined) return;
@@ -32,6 +40,34 @@ const Nav = ({ user: initialUser }) => {
 
   const isAuthenticated = !!user;
   const createStoryHref = isAuthenticated ? "/StoryForm" : "/auth/signIn";
+
+    useGSAP(() => {
+        const nav = document.querySelector('.header-nav');
+        const showAnim = gsap.from(nav, {
+            yPercent: -120,
+            paused: true,
+            duration: 0
+        }).progress(1);
+
+        ScrollTrigger.create({
+            trigger: ".header-nav",
+            start: "top top",
+            end: 99999,
+            onUpdate: (self) => {
+                self.direction === -1 ? showAnim.play() : showAnim.reverse()
+            }
+        });
+
+        ScrollTrigger.create({
+            trigger: ".header-nav",
+            start: "top top",
+            end: 99999,
+            onUpdate: () => {
+                nav.classList.toggle('is-not-at-top', window.scrollY > 20);
+            },
+        });
+    }, {dependencies: [pathname]});
+
 
   return (
     <nav className="header-nav">
