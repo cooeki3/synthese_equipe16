@@ -71,29 +71,30 @@ const Nav = ({ user: initialUser }) => {
 
   return (
     <nav className="header-nav">
-      <a href="/">
-        <img className="logo" src="../../../img/logo_inkveil.png" alt="" />
-      </a>
-
-      {!isAuthenticated && (
-        <ul className="nav-list">
-          <li>
-            <Link href="/auth/signIn" className="btn-nav btn-compte">
-              Se connecter
-            </Link>
-          </li>
-          <li>
-            <Link href="/auth/signUp" className="btn-nav btn-compte">
-              S'inscrire
-            </Link>
-          </li>
-          <li>
-            <Link href={createStoryHref} className="btn-nav btn-creer">
-              Créer une histoire
-            </Link>
-          </li>
-        </ul>
-      )}
+      <div className="header-nav-flex-container">
+        <a href="/">
+          <img className="logo" src="../../../img/logo_inkveil.png" alt="" />
+        </a>
+        {!isAuthenticated && (
+          <ul className="nav-list">
+            <li>
+              <Link href="/auth/signIn" className="btn-nav btn-compte">
+                Se connecter
+              </Link>
+            </li>
+            <li>
+              <Link href="/auth/signUp" className="btn-nav btn-compte">
+                S'inscrire
+              </Link>
+            </li>
+            <li>
+              <Link href={createStoryHref} className="btn-nav btn-create">
+                Créer une histoire
+              </Link>
+            </li>
+          </ul>
+        )}
+      </div>
 
       {isAuthenticated && (
         <ul className="nav-list">
@@ -117,7 +118,7 @@ const Nav = ({ user: initialUser }) => {
             </form>
           </li>
           <li>
-            <Link href={createStoryHref} className="btn-nav btn-creer">
+            <Link href={createStoryHref} className="btn-nav btn-create">
               Créer une histoire
             </Link>
           </li>
