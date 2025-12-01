@@ -87,7 +87,7 @@ const Nav = ({ user: initialUser }) => {
               </Link>
             </li>
             <li>
-              <Link href="/auth/signUp" className={isVisualizerPage ? "btn-nav btn-create white" : "btn-nav btn-create"}>
+              <Link href="/StoryForm" className={isVisualizerPage ? "btn-nav btn-create white" : "btn-nav btn-create"}>
                 Créer une histoire
               </Link>
             </li>
