@@ -200,5 +200,6 @@ input {
     background-image: linear-gradient(to right, #8e10e7, #dc82ff);
     color: white;
     transition: all 0.3s;
+    border: 1px solid white;
   }
 }

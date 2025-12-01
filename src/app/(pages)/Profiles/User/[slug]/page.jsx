@@ -1,13 +1,13 @@
 "use client";
 
-import AccountPage from "../../../../_components/AccountPage.jsx"
+import UserPage from "../../../../_components/UserPage.jsx"
 
-const Account = () => {
+const User = () => {
     return (
         <div>
-            <AccountPage />
+            <UserPage />
         </div>
     )
 }
 
-export default Account;
+export default User;
