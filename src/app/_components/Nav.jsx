@@ -15,6 +15,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger, CustomEase);
 const Nav = ({ user: initialUser }) => {
   const [user, setUser] = useState(initialUser ?? null);
   const pathname = usePathname();
+  var isVisualizerPage = pathname.includes("StoryVisualizer");
 
   useEffect(() => {
     if (initialUser !== undefined) return;
@@ -29,8 +30,8 @@ const Nav = ({ user: initialUser }) => {
       } catch (error) {
         console.error("[nav] Impossible de récupérer la session", error);
         if (active) setUser(null);
-      } 
-      
+      }
+
     };
     fetchSession();
     return () => {
@@ -41,54 +42,52 @@ const Nav = ({ user: initialUser }) => {
   const isAuthenticated = !!user;
   const createStoryHref = isAuthenticated ? "/StoryForm" : "/auth/signIn";
 
-    useGSAP(() => {
-        const nav = document.querySelector('.header-nav');
-        const showAnim = gsap.from(nav, {
-            yPercent: -120,
-            paused: true,
-            duration: 0
-        }).progress(1);
+  useGSAP(() => {
+    const nav = document.querySelector('.header-nav');
+    const showAnim = gsap.from(nav, {
+      yPercent: -120,
+      paused: true,
+      duration: 0
+    }).progress(1);
 
-        ScrollTrigger.create({
-            trigger: ".header-nav",
-            start: "top top",
-            end: 99999,
-            onUpdate: (self) => {
-                self.direction === -1 ? showAnim.play() : showAnim.reverse()
-            }
-        });
+    ScrollTrigger.create({
+      trigger: ".header-nav",
+      start: "top top",
+      end: 99999,
+      onUpdate: (self) => {
+        self.direction === -1 ? showAnim.play() : showAnim.reverse()
+      }
+    });
 
-        ScrollTrigger.create({
-            trigger: ".header-nav",
-            start: "top top",
-            end: 99999,
-            onUpdate: () => {
-                nav.classList.toggle('is-not-at-top', window.scrollY > 20);
-            },
-        });
-    }, {dependencies: [pathname]});
+    ScrollTrigger.create({
+      trigger: ".header-nav",
+      start: "top top",
+      end: 99999,
+      onUpdate: () => {
+        nav.classList.toggle('is-not-at-top', window.scrollY > 20);
+      },
+    });
+  }, { dependencies: [pathname] });
 
 
   return (
     <nav className="header-nav">
       <div className="header-nav-flex-container">
-        <a href="/">
-          <img className="logo" src="../../../img/logo_inkveil.png" alt="" />
-        </a>
+        <a href="/"><img className="logo" src={isVisualizerPage ? "../../../img/logo_inkveil_white.png" : "../../../img/logo_inkveil.png"} alt="" /></a>
         {!isAuthenticated && (
           <ul className="nav-list">
             <li>
-              <Link href="/auth/signIn" className="btn-nav btn-compte">
+              <Link href="/auth/signIn" className={isVisualizerPage ? "btn-nav btn-compte white" : "btn-nav btn-compte"}>
                 Se connecter
               </Link>
             </li>
             <li>
-              <Link href="/auth/signUp" className="btn-nav btn-compte">
+              <Link href="/auth/signUp" className={isVisualizerPage ? "btn-nav btn-compte white" : "btn-nav btn-compte"}>
                 S'inscrire
               </Link>
             </li>
             <li>
-              <Link href={createStoryHref} className="btn-nav btn-create">
+              <Link href="/auth/signUp" className={isVisualizerPage ? "btn-nav btn-create white" : "btn-nav btn-create"}>
                 Créer une histoire
               </Link>
             </li>
