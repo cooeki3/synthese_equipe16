@@ -17,10 +17,12 @@ const RecemmentPubliees = () => {
                                 <div className="card">
                                     <div className="img-container">
                                         <img src="../../../img/placeholder.png" className="slide-img" alt="" />
-                                        <button className="read-button">
-                                            <p>Lire</p>
-                                            <BookOpen className='read-icon' />
-                                        </button>
+                                        <div className="swiper-buttons-flex-container">
+                                            <button className="read-button">
+                                                <p>Lire</p>
+                                                <BookOpen className='read-icon' />
+                                            </button>
+                                        </div>
                                     </div>
                                     <div className="tags">
                                         <span>Vampire</span>
@@ -30,6 +32,7 @@ const RecemmentPubliees = () => {
                                     <p>
                                         Dans un manoir oublié par le temps, un vampire centenaire se retrouve confronté à un choix impossible : embrasser l'éternité dans les ténèbres ou chercher la rédemption avant l'aube finale. Chaque...
                                     </p>
+                                    <p className='swiper-author'>Alexandre Gratton</p>
                                 </div>
                             </Link>
                         </div>
@@ -39,10 +42,12 @@ const RecemmentPubliees = () => {
                                 <div className="card">
                                     <div className="img-container">
                                         <img src="../../../img/placeholder.png" className="slide-img" alt="" />
-                                        <button className="read-button">
-                                            <p>Lire</p>
-                                            <BookOpen className='read-icon' />
-                                        </button>
+                                        <div className="swiper-buttons-flex-container">
+                                            <button className="read-button">
+                                                <p>Lire</p>
+                                                <BookOpen className='read-icon' />
+                                            </button>
+                                        </div>
                                     </div>
                                     <div className="tags">
                                         <span>Fée</span>
@@ -52,6 +57,7 @@ const RecemmentPubliees = () => {
                                     <p>
                                         Au cœur d'une forêt enchantée, une jeune fée est chargée de restaurer l'équilibre entre les royaumes de lumière et d'ombre. Elle explore des clairières mystérieuses, noue des alliances avec les...
                                     </p>
+                                    <p className='swiper-author'>Alexandre Gratton</p>
                                 </div>
                             </Link>
                         </div>
@@ -61,10 +67,12 @@ const RecemmentPubliees = () => {
                                 <div className="card">
                                     <div className="img-container">
                                         <img src="../../../img/placeholder.png" className="slide-img" alt="" />
-                                        <button className="read-button">
-                                            <p>Lire</p>
-                                            <BookOpen className='read-icon' />
-                                        </button>
+                                        <div className="swiper-buttons-flex-container">
+                                            <button className="read-button">
+                                                <p>Lire</p>
+                                                <BookOpen className='read-icon' />
+                                            </button>
+                                        </div>
                                     </div>
                                     <div className="tags">
                                         <span>Guerrier</span>
@@ -74,6 +82,7 @@ const RecemmentPubliees = () => {
                                     <p>
                                         Le royaume est au bord du gouffre et un noble chevalier doit choisir entre l'honneur et la rébellion. Alors que la corruption gangrène la cour royale, ses décisions détermineront s'il deviendra un héros...
                                     </p>
+                                    <p className='swiper-author'>Alexandre Gratton</p>
                                 </div>
                             </Link>
                         </div>
@@ -83,10 +92,12 @@ const RecemmentPubliees = () => {
                                 <div className="card">
                                     <div className="img-container">
                                         <img src="../../../img/placeholder.png" className="slide-img" alt="" />
-                                        <button className="read-button">
-                                            <p>Lire</p>
-                                            <BookOpen className='read-icon' />
-                                        </button>
+                                        <div className="swiper-buttons-flex-container">
+                                            <button className="read-button">
+                                                <p>Lire</p>
+                                                <BookOpen className='read-icon' />
+                                            </button>
+                                        </div>
                                     </div>
                                     <div className="tags">
                                         <span>Action</span>
@@ -96,6 +107,7 @@ const RecemmentPubliees = () => {
                                     <p>
                                         Au seuil de l'Académie des Arcanes, un apprenti mage découvre que chaque sortilège a un prix. Aux pouvoirs naissants, il devra naviguer entre traditions ancestrales et magie interdite. Ses choix...
                                     </p>
+                                    <p className='swiper-author'>Alexandre Gratton</p>
                                 </div>
                             </Link>
                         </div>

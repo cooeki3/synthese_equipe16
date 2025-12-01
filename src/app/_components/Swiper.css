@@ -130,3 +130,10 @@ hr {
   justify-content: flex-end;
   width: 100%;
 }
+
+
+.swiper-author{
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 16px;
+}

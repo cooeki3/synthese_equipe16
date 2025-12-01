@@ -62,8 +62,11 @@ const storyModificationPage = () => {
 
         </button>
       </div>
-      <button className="publish-icon">
+      <button className="publish-button">
         Publier
+      </button>
+      <button className="save-button">
+        Enregistrer
       </button>
     </div >
   )
