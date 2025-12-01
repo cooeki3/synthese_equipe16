@@ -39,9 +39,8 @@ const Nav = () => {
             onUpdate: () => {
                 nav.classList.toggle('is-not-at-top', window.scrollY > 20);
             },
-            markers: true,
         });
-    }, []);
+    }, {dependencies: [pathname]});
 
 
     return (

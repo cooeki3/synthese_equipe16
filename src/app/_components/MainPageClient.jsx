@@ -30,7 +30,7 @@ import ReprendreLecture from "./KeepReading.jsx"
 //TODO: Intégrer la logique pour afficher les histoires à reprendre (Tags, bannière, titre et synopsis)(ou ne pas l'afficher si l'utilisateur n'a jamais lu d'histoire et/ou il n'est pas connceté).
 
 const MainPageClient = ({ displayName }) => {
-  useLenis();
+  // useLenis();
 
   const {
     nodes,
