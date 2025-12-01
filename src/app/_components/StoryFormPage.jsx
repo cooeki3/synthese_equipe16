@@ -17,7 +17,7 @@ import { Music3 } from 'lucide-react';
 //TODO: (APRÈS L'ALPHA) : Pouvoir téléverser une image de bannière et/ou musique.
 //TODO (ALEX): (APRÈS L'ALPHA) : Créer la page de téléversement d'images/musiques.
 
-const StoryFormPage = () => {
+const StoryFormPage = ({ formAction, initial = {} }) => {
     const [bannerIsOpen, setBannerIsOpen] = useState(false);
     const [musicIsOpen, setMusicIsOpen] = useState(false);
     const bannerPopupRef = useRef();
@@ -171,11 +171,9 @@ const StoryFormPage = () => {
                 <hr className="story-form-hr" />
 
                 {/* id place holder */}
-                <Link href="/StoryEditor/id" className="">
-                    <button className="btn-form btn-form-continue" >
-                        Continuer
-                    </button>
-                </Link>
+                <button type="submit" className="btn-form btn-form-continue" >
+                    Continuer
+                </button>
 
 
             </form>
@@ -187,3 +185,4 @@ const StoryFormPage = () => {
 }
 
 export default StoryFormPage;
+
