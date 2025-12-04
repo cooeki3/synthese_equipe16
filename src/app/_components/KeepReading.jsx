@@ -10,7 +10,7 @@ const KeepReading = () => {
                     <div className="swiper-wrapper">
                         {/*Slide 1 */}
                         <div className="swiper-slide swiper-first-slide">
-                            <Link href="/StoryOverview/id" className="swiper-link">
+                            <Link href="/storyoverview/id" className="swiper-link">
                                 <div className="card">
                                     <div className="img-container">
                                         <img src="../../../img/placeholder.png" className="slide-img" alt="" />
@@ -35,7 +35,7 @@ const KeepReading = () => {
                         </div>
                         {/* Slide 2 */}
                         <div className="swiper-slide">
-                            <Link href="/StoryOverview/id" className="swiper-link">
+                            <Link href="/storyoverview/id" className="swiper-link">
                                 <div className="card">
                                     <div className="img-container">
                                         <img src="../../../img/placeholder.png" className="slide-img" alt="" />
@@ -61,7 +61,7 @@ const KeepReading = () => {
 
                         {/* Slide 3 */}
                         <div className="swiper-slide">
-                            <Link href="/StoryOverview/id" className="swiper-link">
+                            <Link href="/storyoverview/id" className="swiper-link">
                                 <div className="card">
                                     <div className="img-container">
                                         <img src="../../../img/placeholder.png" className="slide-img" alt="" />
@@ -86,7 +86,7 @@ const KeepReading = () => {
                         </div>
                         {/* Slide 4 */}
                         <div className="swiper-slide swiper-last-slide">
-                            <Link href="/StoryOverview/id" className="swiper-link">
+                            <Link href="/storyoverview/id" className="swiper-link">
                                 <div className="card">
                                     <div className="img-container">
                                         <img src="../../../img/placeholder.png" className="slide-img" alt="" />

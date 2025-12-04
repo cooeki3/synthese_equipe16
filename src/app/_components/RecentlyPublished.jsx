@@ -42,7 +42,7 @@ const RecemmentPubliees = ({ stories = [] }) => {
                     />
                     <div className="swiper-buttons-flex-container">
                       <Link
-                        href={`/storyVisualizer/${story.id}`}
+                        href={`/storyvisualizer/${story.id}`}
                         className="read-button"
                         aria-label={`Lire ${story.title}`}
                       >

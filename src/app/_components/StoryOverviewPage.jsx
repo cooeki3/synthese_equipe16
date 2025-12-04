@@ -31,7 +31,7 @@ const StoryOverviewPage = () => {
                             <div className="tag action-tag">Action</div>
                             <div className="tag magic-tag">Magie</div>
                         </div>
-                        <Link href="/Profiles/User/slug" className="">
+                        <Link href="/profiles/user/slug" className="">
                             <p className="author">Alexandre Gratton</p>
                         </Link>
                     </div>
@@ -42,7 +42,7 @@ const StoryOverviewPage = () => {
                                 Au seuil de l'Académie des Arcanes, un apprenti mage découvre que chaque sortilège a un prix. Aux pouvoirs naissants, il devra naviguer entre traditions ancestrales et magie interdite. Ses choix détermineront non seulement son destin, mais aussi l'équilibre fragile entre lumière et ténèbres. Dans l'ombre des bibliothèques oubliées, des secrets millénaires l'attendent, tandis que des forces obscures convoitent son potentiel inexploité. Entre loyauté envers ses maîtres et la tentation d'un pouvoir absolu, il découvrira que certaines vérités sont plus dangereuses que n'importe quel sortilège.
                             </p>
                         </div>
-                        <Link href="/StoryVisualizer/id" className="">
+                        <Link href="/storyvisualizer/id" className="">
                             <button className="read-button">
                                 <p>Lire</p>
                                 <BookOpen className='read-icon' />

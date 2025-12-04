@@ -132,7 +132,7 @@ const UserAccountPage = ({
             </p>
           )}
           {children}
-          <Link href="/auth/signIn" className="switch-form">
+          <Link href="/auth/signin" className="switch-form">
             Vous avez déjà un compte?{" "}
             <span className="btn-switch-form">Se connecter</span>
           </Link>
