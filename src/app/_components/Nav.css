@@ -3,27 +3,27 @@
   position: fixed;
   top: 0;
   left: 50%;
-  transform: translateX(-50%);
   justify-content: center;
-  padding: 40px 0;
+  transform: translateX(-50%);
   z-index: 11;
+  transition: all 0.5s;
+  border-bottom: 1px solid transparent;
+  background-color: transparent;
+  padding: 40px 0;
   width: 100%;
   height: auto;
-  background-color: transparent;
-  border-bottom: 1px solid transparent;
-  transition: all 0.5s;
 }
 
 .header-nav-flex-container {
   display: flex;
-  justify-content: space-between;
   align-content: center;
+  justify-content: space-between;
   width: 84vw;
 }
 
 .header-nav.is-not-at-top {
-  background: white;
   border-bottom: solid 1px var(--light-gray);
+  background: white;
 }
 
 .nav-list {
@@ -48,39 +48,23 @@
 
 .btn-create {
   position: relative;
+  transition: background-position 0.6s ease;
+  border: none;
   border-radius: 25px;
-  background-color: var(--primary-text-color);
+  background: linear-gradient(
+    90deg,
+    rgb(34, 34, 34) 0%,
+    rgb(110, 110, 110) 51%,
+    rgb(34, 34, 34) 100%
+  );
+  background-position: left bottom;
+  background-size: 200% 100%;
   padding: 12px 20px;
   color: white;
-  overflow: hidden;
-  z-index: 0;
+  &:hover {
+    background-position: right bottom;
+  }
 }
-
-.btn-create::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 25px;
-  background-image: linear-gradient(to right, #8e10e7, #dc82ff);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* .btn-create:hover {
-  border-color: white;
-  color: white;
-}
-
-.btn-create:hover::before {
-  opacity: 1;
-}
-
-.btn-create:hover p {
-  color: white;
-} */
-
 
 .account-icon {
   img {
