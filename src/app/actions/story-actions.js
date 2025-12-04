@@ -5,14 +5,8 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { v4 as uuid } from "uuid";
 import { eq, and } from "drizzle-orm";
-import { auth } from "@/lib/auth";
 
 export async function createStory(formData) {
-  const session = await auth.api.getSession({ headers: await headers() });
-  if (!session?.user?.id) {
-    // Refuser la creation sans utilisateur authentifie
-    redirect("/auth/signIn");
-  }
 
   const userId = session.user.id;
   const titre = formData.get("titre")?.toString().trim();

@@ -47,10 +47,13 @@
 }
 
 .btn-create {
+  position: relative;
   border-radius: 25px;
   background-color: var(--primary-text-color);
   padding: 12px 20px;
   color: white;
+  overflow: hidden;
+  z-index: 0;
 }
 
 .btn-create::before {
@@ -61,7 +64,8 @@
   background-image: linear-gradient(to right, #8e10e7, #dc82ff);
   opacity: 0;
   transition: opacity 0.3s ease;
-  z-index: 0;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* .btn-create:hover {
