@@ -93,7 +93,6 @@ const Nav = ({ user: initialUser }) => {
             </li>
           </ul>
         )}
-      </div>
 
       {isAuthenticated && (
         <ul className="nav-list">
@@ -114,7 +113,7 @@ const Nav = ({ user: initialUser }) => {
                 className="btn-nav btn-compte"
                 title="Se déconnecter"
                 
-              >
+                >
                 <LogoutIcon sx={{ fontSize: 30 }} />
               </button>
             </form>
@@ -126,6 +125,7 @@ const Nav = ({ user: initialUser }) => {
           </li>
         </ul>
       )}
+      </div>
     </nav>
   );
 };

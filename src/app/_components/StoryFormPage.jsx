@@ -24,7 +24,7 @@ const previewAnimation = (theme, target) => {
 
     target.innerHTML = target.textContent;
 
-    // Theme 1
+    // Theme 1 (preview)
     if (theme === 1) {
         const split = new SplitText(target, { type: "lines" });
         const lines = split.lines;
@@ -50,7 +50,7 @@ const previewAnimation = (theme, target) => {
         return tl;
     }
 
-    // Theme 2
+    // Theme 2 (preview)
     if (theme === 2) {
         const split = new SplitText(target, { type: "chars" });
 
@@ -62,7 +62,7 @@ const previewAnimation = (theme, target) => {
         });
     }
 
-    // Theme 3
+    // Theme 3 (preview)
     if (theme === 3) {
         const split = new SplitText(target, { type: "chars" });
 
@@ -158,10 +158,10 @@ const StoryFormPage = () => {
         document.addEventListener("mousedown", handleClickOutside);
     })
 
-  return (
-    <div className="story-form-container">
-      <img className="bg" src="../../../img/blue-purple_gradient.png" alt="" />
-      <Nav user={user} />
+    return (
+        <div className="story-form-container">
+            <img className="bg" src="../../../img/blue-purple_gradient.png" alt="" />
+            <Nav user={user} />
 
             <h1 className="h1-story-form">Nouvelle histoire</h1>
             <form className="story-form" >
@@ -301,7 +301,7 @@ const StoryFormPage = () => {
                     </div>
                 }
 
-        <hr className="story-form-hr" />
+                <hr className="story-form-hr" />
 
                 {/* id place holder */}
                 <Link href="/StoryEditor/id" className="">
