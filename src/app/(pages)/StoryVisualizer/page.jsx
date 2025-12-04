@@ -1,32 +1,36 @@
-
 "use client";
-import Footer from "./Footer.jsx"
-import Nav from "./Nav.jsx"
+
+import Link from "next/link";
+import Nav from "./../../_components/Nav.jsx";
+import { BookOpen } from 'lucide-react';
 
 import gsap from "gsap";
-import Link from "next/link";
+// import Link from "next/link";
 import { CustomEase } from "gsap/all";
 import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { GSDevTools } from "gsap/GSDevTools";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
-import { useAudio } from "../_context/AudioContext.jsx";
+// import { useAudio } from "../_context/AudioContext.jsx";
+// import "../../_components/StoryVisualizerPage.jsx"
 
-import "../_components/Nav.css"
-import "../_components/Footer.css"
-import "../_components/MainPageClient.css"
-import "../_components/StoryVisualizerPage.css"
-gsap.registerPlugin(useGSAP, ScrollTrigger, GSDevTools, SplitText, CustomEase);
+import "../../_components/Nav.css"
+// import "../_components/Footer.css"
+import "../../_components/MainPageClient.css"
+import "../../_components/StoryVisualizerPage.css"
 
-const StoryVisualizerPage = () => {
+
+const pageTestAlex = () => {
+
+    gsap.registerPlugin(useGSAP, ScrollTrigger, GSDevTools, SplitText, CustomEase);
 
     const storyTextRef = useRef();
     const backgroundRef = useRef();
-    //BOUTTON THEME TEST
+    //BOUTTONS THEME TEST
     const [theme, setTheme] = useState(1);
 
-    const { changeSource, play } = useAudio(false);
+    // const { changeSource, play } = useAudio(false);
     const tl = useRef();
 
     useGSAP(() => {
@@ -139,7 +143,7 @@ const StoryVisualizerPage = () => {
             {/* ////////////////////RESET SPLITTEXT ///////////////////////// */}
             {/*  (IMPORTANT, sinon bug)(À retirer pour la remise): */}
             <button onClick={changeTheme} className="theme-btn">
-                Changer Thème ({theme})
+                Change Theme ({theme})
             </button>
             {/* ///////////////////////////////////////////////////////////// */}
 
@@ -150,5 +154,31 @@ const StoryVisualizerPage = () => {
     )
 }
 
-export default StoryVisualizerPage;
+export default pageTestAlex;
+
+
+
+
+// "use client";
+// import Footer from "./Footer.jsx"
+// import Nav from "./Nav.jsx"
+
+// import gsap from "gsap";
+// import Link from "next/link";
+// import { CustomEase } from "gsap/all";
+// import { useRef, useState } from "react";
+// import { useGSAP } from "@gsap/react";
+// import { GSDevTools } from "gsap/GSDevTools";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { SplitText } from "gsap/SplitText";
+// import { useAudio } from "../_context/AudioContext.jsx";
+
+// import "../_components/Nav.css"
+// import "../_components/Footer.css"
+// import "../_components/MainPageClient.css"
+// import "../_components/StoryVisualizerPage.css"
+
+
+
+
 

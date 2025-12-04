@@ -82,7 +82,7 @@ const previewAnimation = (theme, target) => {
 
 
 
-const StoryFormPage = () => {
+const StoryFormPage = ({ formAction, initial = {} }) => {
     const [bannerIsOpen, setBannerIsOpen] = useState(false);
     const [ambianceIsOpen, setAmbianceIsOpen] = useState(false);
     const [effectIsOpen, setEffectIsOpen] = useState(false);
@@ -164,11 +164,16 @@ const StoryFormPage = () => {
             <Nav />
 
             <h1 className="h1-story-form">Nouvelle histoire</h1>
-            <form className="story-form" >
+            <form className="story-form" action={formAction}>
+                {initial.id && (
+                    <input type="hidden" name="id" value={initial.id} />
+                )}
+                
                 <div className="form-input-container title-input">
                     <label htmlFor="title">Titre</label>
                     <input
                         id="title"
+                        name="titre"
                         className="title"
                         placeholder="Écrire..."
                         // required
@@ -179,9 +184,11 @@ const StoryFormPage = () => {
                     <label htmlFor="synopsis">Synopsis</label>
                     <textarea
                         id="synopsis"
+                        name="synopsis"
                         placeholder="Écrire..."
                         // required
                         rows={3}
+                        defaultValue={initial.synopsis || ''}
                     ></textarea>
                 </div>
 
@@ -304,11 +311,9 @@ const StoryFormPage = () => {
                 <hr className="story-form-hr" />
 
                 {/* id place holder */}
-                <Link href="/StoryEditor/id" className="">
-                    <button className="btn-form btn-form-continue" >
-                        Continuer
-                    </button>
-                </Link>
+                <button type="submit" className="btn-form btn-form-continue" >
+                    Continuer
+                </button>
 
 
             </form >
@@ -320,3 +325,4 @@ const StoryFormPage = () => {
 }
 
 export default StoryFormPage;
+

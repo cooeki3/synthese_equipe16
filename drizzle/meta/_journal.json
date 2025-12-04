@@ -15,6 +15,27 @@
       "when": 1762800786202,
       "tag": "0001_bent_warpath",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1763994301204,
+      "tag": "0002_clear_microbe",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1764006003498,
+      "tag": "0003_right_psylocke",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1764571550626,
+      "tag": "0004_dashing_ezekiel_stane",
+      "breakpoints": true
     }
   ]
 }

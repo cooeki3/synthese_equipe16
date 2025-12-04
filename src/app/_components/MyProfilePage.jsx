@@ -4,6 +4,7 @@ import Footer from "./Footer.jsx"
 import Nav from "./Nav.jsx"
 import { BookOpen } from 'lucide-react';
 import { useEffect } from "react";
+import "swiper/css";
 
 import "../_components/Nav.css"
 import "../_components/Footer.css"
@@ -12,7 +13,6 @@ import "../_components/MyProfilePage.css"
 import "../_components/Swiper.css"
 
 import Swiper from 'swiper';
-import "swiper/css";
 import EditIcon from '@mui/icons-material/Edit';
 
 //TODO: Afficher dynamiquement le nom et la photo de profil de l'utilisateur.
@@ -67,10 +67,11 @@ const MyProfilePage = () => {
                                         <span>Amour</span>
                                     </div>
                                     <h3>Les derniers jours de Noctis</h3>
-                                    <p className="author">Alexandre Gratton</p>
+
                                     <p>
                                         Dans un manoir oublié par le temps, un vampire centenaire se retrouve confronté à un choix impossible : embrasser l'éternité dans les ténèbres ou chercher la rédemption avant l'aube finale. Chaque...
                                     </p>
+                                    <p className='swiper-author'>Alexandre Gratton</p>
                                 </div>
                             </Link>
                         </div>
@@ -95,10 +96,11 @@ const MyProfilePage = () => {
                                         <span>Action</span>
                                     </div>
                                     <h3>Entre les Pétales et les Épines</h3>
-                                    <p className="author">Alexandre Gratton</p>
+
                                     <p>
                                         Au cœur d'une forêt enchantée, une jeune fée est chargée de restaurer l'équilibre entre les royaumes de lumière et d'ombre. Elle explore des clairières mystérieuses, noue des alliances avec les...
                                     </p>
+                                    <p className='swiper-author'>Alexandre Gratton</p>
                                 </div>
                             </Link>
                         </div>
@@ -123,10 +125,11 @@ const MyProfilePage = () => {
                                         <span>Amour</span>
                                     </div>
                                     <h3>La Révolte du Paladin</h3>
-                                    <p className="author">Alexandre Gratton</p>
+
                                     <p>
                                         Le royaume est au bord du gouffre et un noble chevalier doit choisir entre l'honneur et la rébellion. Alors que la corruption gangrène la cour royale, ses décisions détermineront s'il deviendra un héros...
                                     </p>
+                                    <p className='swiper-author'>Alexandre Gratton</p>
                                 </div>
                             </Link>
                         </div>
@@ -151,10 +154,11 @@ const MyProfilePage = () => {
                                         <span>Magie</span>
                                     </div>
                                     <h3>Magie Blanche et Ombre</h3>
-                                    <p className="author">Alexandre Gratton</p>
+
                                     <p>
                                         Au seuil de l'Académie des Arcanes, un apprenti mage découvre que chaque sortilège a un prix. Aux pouvoirs naissants, il devra naviguer entre traditions ancestrales et magie interdite. Ses choix...
                                     </p>
+                                    <p className='swiper-author'>Alexandre Gratton</p>
                                 </div>
                             </Link>
                         </div>
@@ -180,10 +184,10 @@ const MyProfilePage = () => {
                                             <button className="edit-button">
                                                 <EditIcon />
                                             </button>
-                                            <button className="read-button">
+                                            {/* <button className="read-button">
                                                 <p>Lire</p>
                                                 <BookOpen className='read-icon' />
-                                            </button>
+                                            </button> */}
                                         </div>
                                     </div>
                                     <div className="tags">
@@ -191,10 +195,11 @@ const MyProfilePage = () => {
                                         <span>Amour</span>
                                     </div>
                                     <h3>Les derniers jours de Noctis</h3>
-                                    <p className="author">Alexandre Gratton</p>
+
                                     <p>
                                         Dans un manoir oublié par le temps, un vampire centenaire se retrouve confronté à un choix impossible : embrasser l'éternité dans les ténèbres ou chercher la rédemption avant l'aube finale. Chaque...
                                     </p>
+                                    <p className='swiper-author'>Alexandre Gratton</p>
                                 </div>
                             </Link>
                         </div>
@@ -208,10 +213,10 @@ const MyProfilePage = () => {
                                             <button className="edit-button">
                                                 <EditIcon />
                                             </button>
-                                            <button className="read-button">
+                                            {/* <button className="read-button">
                                                 <p>Lire</p>
                                                 <BookOpen className='read-icon' />
-                                            </button>
+                                            </button> */}
                                         </div>
                                     </div>
                                     <div className="tags">
@@ -219,10 +224,11 @@ const MyProfilePage = () => {
                                         <span>Action</span>
                                     </div>
                                     <h3>Entre les Pétales et les Épines</h3>
-                                    <p className="author">Alexandre Gratton</p>
+
                                     <p>
                                         Au cœur d'une forêt enchantée, une jeune fée est chargée de restaurer l'équilibre entre les royaumes de lumière et d'ombre. Elle explore des clairières mystérieuses, noue des alliances avec les...
                                     </p>
+                                    <p className='swiper-author'>Alexandre Gratton</p>
                                 </div>
                             </Link>
                         </div>
@@ -236,10 +242,10 @@ const MyProfilePage = () => {
                                             <button className="edit-button">
                                                 <EditIcon />
                                             </button>
-                                            <button className="read-button">
+                                            {/* <button className="read-button">
                                                 <p>Lire</p>
                                                 <BookOpen className='read-icon' />
-                                            </button>
+                                            </button> */}
                                         </div>
                                     </div>
                                     <div className="tags">
@@ -247,10 +253,11 @@ const MyProfilePage = () => {
                                         <span>Amour</span>
                                     </div>
                                     <h3>La Révolte du Paladin</h3>
-                                    <p className="author">Alexandre Gratton</p>
+
                                     <p>
                                         Le royaume est au bord du gouffre et un noble chevalier doit choisir entre l'honneur et la rébellion. Alors que la corruption gangrène la cour royale, ses décisions détermineront s'il deviendra un héros...
                                     </p>
+                                    <p className='swiper-author'>Alexandre Gratton</p>
                                 </div>
                             </Link>
                         </div>
@@ -264,10 +271,10 @@ const MyProfilePage = () => {
                                             <button className="edit-button">
                                                 <EditIcon />
                                             </button>
-                                            <button className="read-button">
+                                            {/* <button className="read-button">
                                                 <p>Lire</p>
                                                 <BookOpen className='read-icon' />
-                                            </button>
+                                            </button> */}
                                         </div>
                                     </div>
                                     <div className="tags">
@@ -275,10 +282,11 @@ const MyProfilePage = () => {
                                         <span>Magie</span>
                                     </div>
                                     <h3>Magie Blanche et Ombre</h3>
-                                    <p className="author">Alexandre Gratton</p>
+
                                     <p>
                                         Au seuil de l'Académie des Arcanes, un apprenti mage découvre que chaque sortilège a un prix. Aux pouvoirs naissants, il devra naviguer entre traditions ancestrales et magie interdite. Ses choix...
                                     </p>
+                                    <p className='swiper-author'>Alexandre Gratton</p>
                                 </div>
                             </Link>
                         </div>
