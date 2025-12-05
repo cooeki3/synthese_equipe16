@@ -15,7 +15,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger, CustomEase);
 const Nav = ({ user: initialUser }) => {
   const [user, setUser] = useState(initialUser ?? null);
   const pathname = usePathname();
-  var isVisualizerPage = pathname.includes("StoryVisualizer");
+  const isVisualizerPage = pathname?.includes("/storyvisualizer");
 
   useEffect(() => {
     if (initialUser !== undefined) return;

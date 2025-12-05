@@ -2,7 +2,7 @@ import SignInPage from "../../_components/SignInPage";
 import { getSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
-const SignIn = async () => {
+const Signin = async () => {
   // Si l'utilisateur est déjà connecté, rediriger vers la page d'accueil
   const session = await getSession();
   if (session) {
@@ -13,4 +13,4 @@ const SignIn = async () => {
 
 
 };
-export default SignIn;
+export default Signin;

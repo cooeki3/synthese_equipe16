@@ -34,7 +34,7 @@ export async function createStory(formData) {
     is_ending: false,
   });
 
-  redirect(`/StoryEditor/${storyId}`);
+  redirect(`/storyeditor/${storyId}`);
 }
 
 export async function updateStoryMeta(storyId, payload) {

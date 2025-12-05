@@ -2,7 +2,7 @@ import SignUpClient from "../../_components/SignUpPage";
 import { getSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
-const SignUp = async () => {
+const Signup = async () => {
   const session = await getSession();
   if (session) {
     redirect("/");
@@ -11,4 +11,4 @@ const SignUp = async () => {
   return <SignUpClient />;
 };
 
-export default SignUp;
+export default Signup;
