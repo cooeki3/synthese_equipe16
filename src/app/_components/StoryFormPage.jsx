@@ -304,7 +304,7 @@ const StoryFormPage = () => {
                 <hr className="story-form-hr" />
 
                 {/* id place holder */}
-                <Link href="/StoryEditor/id" className="">
+                <Link href="/storyeditor/id" className="">
                     <button className="btn-form btn-form-continue" >
                         Continuer
                     </button>
