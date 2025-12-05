@@ -23,7 +23,7 @@ const StoryVisualizerPage = () => {
 
     const storyTextRef = useRef();
     const backgroundRef = useRef();
-    //Boutons thème test
+    //BOUTTON THEME TEST
     const [theme, setTheme] = useState(1);
 
     const { changeSource, play } = useAudio(false);

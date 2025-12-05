@@ -12,8 +12,8 @@ const RecemmentPubliees = ({ stories = [] }) => {
   if (!stories.length) {
     return (
       <section>
-        <h2 className="section-title">Récemment publiées</h2>
-        <p style={{ padding: "0 24px" }}>
+        <h2 className="section-title recently-published-h2" id="stories">Récemment publiées</h2>
+        <p className="placeholder-text">
           Aucune histoire publique n'est disponible pour l'instant. Parcourez les
           créations dès qu'elles seront publiées — même en mode invité.
         </p>
@@ -22,8 +22,8 @@ const RecemmentPubliees = ({ stories = [] }) => {
   }
 
   return (
-    <section>
-      <h2 className="section-title">Récemment publiées</h2>
+    <section >
+      <h2 className="section-title recently-published-h2" id="stories">Récemment publiées</h2>
       <div className="swiper-container">
         <div className="swiper">
           <div className="swiper-wrapper">
@@ -42,7 +42,7 @@ const RecemmentPubliees = ({ stories = [] }) => {
                     />
                     <div className="swiper-buttons-flex-container">
                       <Link
-                        href={`/storyVisualizer/${story.id}`}
+                        href={`/storyvisualizer/${story.id}`}
                         className="read-button"
                         aria-label={`Lire ${story.title}`}
                       >

@@ -62,7 +62,7 @@ const UserPage = () => {
                     <div className="swiper-wrapper">
                         {/*Slide 1 */}
                         <div className="swiper-slide swiper-first-slide">
-                            <Link href="/StoryOverview/id" className="swiper-link">
+                            <Link href="/storyoverview/id" className="swiper-link">
                                 <div className="card">
                                     <div className="img-container">
                                         <img src="../../../img/placeholder.png" className="slide-img" alt="" />
@@ -74,10 +74,7 @@ const UserPage = () => {
                                             </button>
                                         </div>
                                     </div>
-                                    <div className="tags">
-                                        <span>Vampire</span>
-                                        <span>Amour</span>
-                                    </div>
+                                
                                     <h3>Les derniers jours de Noctis</h3>
 
                                     <p>
@@ -89,7 +86,7 @@ const UserPage = () => {
                         </div>
                         {/* Slide 2 */}
                         <div className="swiper-slide">
-                            <Link href="/StoryOverview/id" className="swiper-link">
+                            <Link href="/storyoverview/id" className="swiper-link">
                                 <div className="card">
                                     <div className="img-container">
                                         <img src="../../../img/placeholder.png" className="slide-img" alt="" />
@@ -101,10 +98,7 @@ const UserPage = () => {
                                             </button>
                                         </div>
                                     </div>
-                                    <div className="tags">
-                                        <span>Fée</span>
-                                        <span>Action</span>
-                                    </div>
+                                 
                                     <h3>Entre les Pétales et les Épines</h3>
 
                                     <p>
@@ -116,7 +110,7 @@ const UserPage = () => {
                         </div>
                         {/* Slide 3 */}
                         <div className="swiper-slide">
-                            <Link href="/StoryOverview/id" className="swiper-link">
+                            <Link href="/storyoverview/id" className="swiper-link">
                                 <div className="card">
                                     <div className="img-container">
                                         <img src="../../../img/placeholder.png" className="slide-img" alt="" />
@@ -128,10 +122,7 @@ const UserPage = () => {
                                             </button>
                                         </div>
                                     </div>
-                                    <div className="tags">
-                                        <span>Guerrier</span>
-                                        <span>Amour</span>
-                                    </div>
+                                 
                                     <h3>La Révolte du Paladin</h3>
 
                                     <p>
@@ -143,7 +134,7 @@ const UserPage = () => {
                         </div>
                         {/* Slide 4 */}
                         <div className="swiper-slide swiper-last-slide">
-                            <Link href="/StoryOverview/id" className="swiper-link">
+                            <Link href="/storyoverview/id" className="swiper-link">
                                 <div className="card">
                                     <div className="img-container">
                                         <img src="../../../img/placeholder.png" className="slide-img" alt="" />
@@ -155,10 +146,7 @@ const UserPage = () => {
                                             </button>
                                         </div>
                                     </div>
-                                    <div className="tags">
-                                        <span>Action</span>
-                                        <span>Magie</span>
-                                    </div>
+                                
                                     <h3>Magie Blanche et Ombre</h3>
 
                                     <p>

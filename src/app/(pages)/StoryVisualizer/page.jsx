@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Nav from "./../../_components/Nav.jsx";
+import Nav from "../../_components/Nav.jsx";
 import { BookOpen } from 'lucide-react';
 
 import gsap from "gsap";

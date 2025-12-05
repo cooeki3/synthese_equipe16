@@ -62,7 +62,7 @@ const UserAccountPage = ({
 
   return (
     <div className="page-container">
-      <img className="bg" src="../../../img/blue-purple_gradient.png" alt="" />
+      <img className="bg" src="../../../img/Background_3.jpg" alt="" />
       <Nav />
       <div className="flex-container">
         <h1 className="sign-in-up-h1">
@@ -132,7 +132,7 @@ const UserAccountPage = ({
             </p>
           )}
           {children}
-          <Link href="/auth/signIn" className="switch-form">
+          <Link href="/auth/signin" className="switch-form">
             Vous avez déjà un compte?{" "}
             <span className="btn-switch-form">Se connecter</span>
           </Link>
