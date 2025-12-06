@@ -146,18 +146,18 @@ const StoryEditorPage = ({ story }) => {
 
         return (
           <div
-            style={{
-              position: "relative",
-              padding: "12px 16px",
-              borderRadius: 10,
-              border: "1px solid #d6d6d6",
-              background: "#fff",
-              boxShadow:
-                "0 1px 2px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.06)",
-              minWidth: 140,
-              textAlign: "center",
-              fontWeight: 600,
-            }}
+            // style={{
+            //   position: "relative",
+            //   padding: "12px 16px",
+            //   borderRadius: 10,
+            //   border: "1px solid #d6d6d6",
+            //   background: "#fff",
+            //   boxShadow:
+            //     "0 1px 2px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.06)",
+            //   minWidth: 140,
+            //   textAlign: "center",
+            //   fontWeight: 600,
+            // }}
           >
             {showTarget && (
               <Handle
@@ -224,21 +224,23 @@ const StoryEditorPage = ({ story }) => {
 
       <div className="flex-container-toolbar">
         <div className="tool-bar">
-          <label htmlFor="title">Nom du choix</label>
-          <input
-            className="choice-name"
-            placeholder="Écrire..."
-            value={choiceTitle}
-            onChange={(e) => setChoiceTitle(e.target.value)}
-          />
-          <label htmlFor="title">Texte</label>
-          <textarea
-            placeholder="Écrire..."
-            rows={20}
-            value={nodeText}
-            onChange={(e) => setNodeText(e.target.value)}
-            disabled={isEdgeSelected}
-          />
+          <div className="inputs-flex-container">
+            <label htmlFor="title">Nom du choix</label>
+            <input
+              className="choice-name"
+              placeholder="Écrire..."
+              value={choiceTitle}
+              onChange={(e) => setChoiceTitle(e.target.value)}
+            />
+            <label htmlFor="title">Texte</label>
+            <textarea
+              placeholder="Écrire..."
+              rows={19}
+              value={nodeText}
+              onChange={(e) => setNodeText(e.target.value)}
+              disabled={isEdgeSelected}
+            />
+          </div>
           <div className="switch-container">
             <p>Fin</p>
             <CustomSwitch
@@ -279,10 +281,9 @@ const StoryEditorPage = ({ story }) => {
         </button>
       </div>
 
-      <button className="publish-icon" onClick={handlePublish}>
+      <button className="publish-button" onClick={handlePublish}>
         {story.is_published ? "Remettre en brouillon" : "Publier"}
       </button>
-      <Footer />
     </div>
   );
 };
