@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { Histoires, Nodes } from "@/db/schemas/schema";
-import { eq, and } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { redirect, notFound } from "next/navigation";
 
 
@@ -15,7 +15,7 @@ export default async function StoryStart({ params }) {
   });
   if (!story || !story.is_published) return notFound();
 
-  const startNode = await db
+  const nodes = await db
     .select()
     .from(Nodes)
     //Changé (Alex)
