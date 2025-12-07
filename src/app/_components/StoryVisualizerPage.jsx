@@ -12,7 +12,7 @@ import WestIcon from '@mui/icons-material/West';
 
 import "../_components/Nav.css"
 import "../_components/StoryVisualizerPage.css"
-gsap.registerPlugin(useGSAP, ScrollTrigger, GSDevTools, SplitText, CustomEase);
+gsap.registerPlugin(useGSAP, SplitText);
 
 export default function StoryVisualizerClient({ story, current, edges, storyId, textEffect = "2", ambiance = "2" }) {
     const [choiceIsOpen, setChoiceIsOpen] = useState(false);
