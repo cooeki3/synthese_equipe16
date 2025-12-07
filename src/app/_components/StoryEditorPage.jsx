@@ -170,18 +170,18 @@ const StoryEditorPage = ({ story }) => {
 
         return (
           <div
-            // style={{
-            //   position: "relative",
-            //   padding: "12px 16px",
-            //   borderRadius: 10,
-            //   border: "1px solid #d6d6d6",
-            //   background: "#fff",
-            //   boxShadow:
-            //     "0 1px 2px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.06)",
-            //   minWidth: 140,
-            //   textAlign: "center",
-            //   fontWeight: 600,
-            // }}
+            style={{
+              position: "relative",
+              padding: "12px 16px",
+              borderRadius: 10,
+              border: "1px solid #d6d6d6",
+              background: "#fff",
+              boxShadow:
+                "0 1px 2px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.06)",
+              minWidth: 140,
+              textAlign: "center",
+              fontWeight: 600,
+            }}
           >
             {showTarget && (
               <Handle
@@ -249,28 +249,54 @@ const StoryEditorPage = ({ story }) => {
       <div className="flex-container-toolbar">
         <div className="tool-bar">
           <div className="inputs-flex-container">
-            <label htmlFor="title">Nom du choix</label>
+            <label htmlFor="node-title">Titre du noeud</label>
             <input
+              id="node-title"
               className="choice-name"
-              placeholder="Écrire..."
-              value={choiceTitle}
-              onChange={(e) => setChoiceTitle(e.target.value)}
+              placeholder="Ecrire..."
+              value={nodeTitle}
+              onChange={(e) => handleNodeTitleChange(e.target.value)}
+              disabled={!isNodeSelected}
             />
-            <label htmlFor="title">Texte</label>
+            {!isNodeSelected && (
+              <p className="editor-hint">Sélectionne un noeud pour modifier son titre.</p>
+            )}
+
+            <label htmlFor="edge-title">Titre du lien (optionnel)</label>
+            <input
+              id="edge-title"
+              className="choice-name"
+              placeholder="Ecrire..."
+              value={edgeTitle}
+              onChange={(e) => setEdgeTitle(e.target.value)}
+              disabled={!isEdgeSelected}
+            />
+            {!isEdgeSelected && (
+              <p className="editor-hint">Sélectionne un lien (arête) pour appliquer ce titre.</p>
+            )}
+
+            <label htmlFor="node-text">Texte affiché</label>
             <textarea
-              placeholder="Écrire..."
+              id="node-text"
+              placeholder="Ecrire..."
               rows={19}
               value={nodeText}
               onChange={(e) => setNodeText(e.target.value)}
-              disabled={isEdgeSelected}
+              disabled={!isNodeSelected}
             />
+            {isEdgeSelected && (
+              <p className="editor-hint">
+                Le texte du choix sera lu à partir du titre du noeud cible, vous pouvez laisser ce
+                champ vide.
+              </p>
+            )}
           </div>
           <div className="switch-container">
             <p>Fin</p>
             <CustomSwitch
               checked={isEnding}
               onChange={() => setIsEnding((v) => !v)}
-              disabled={!isNodeSelected}
+              disabled={!isNodeSelected || isStartNode}
             />
           </div>
           <button className="btn btn-editor-appliquer" onClick={handleApply}>
@@ -305,9 +331,10 @@ const StoryEditorPage = ({ story }) => {
         </button>
       </div>
 
-      <button className="publish-button" onClick={handlePublish}>
+      <button className="publish-icon" onClick={handlePublish}>
         {story.is_published ? "Remettre en brouillon" : "Publier"}
       </button>
+      <Footer />
     </div>
   );
 };
