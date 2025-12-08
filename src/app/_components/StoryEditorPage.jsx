@@ -85,6 +85,22 @@ const StoryEditorPage = ({ story }) => {
     }
   };
 
+  const handleToggleEnding = () => {
+    if (!isNodeSelected || isStartNode) return;
+    setIsEnding((prev) => {
+      const next = !prev;
+      setNodesState((current) =>
+        current.map((n) =>
+          n.id === selection.node.id
+            ? { ...n, data: { ...n.data, isEnding: next } }
+            : n
+        )
+      );
+      updateSelectionData();
+      return next;
+    });
+  };
+
   const handleApply = async () => {
     if (isNodeSelected) {
       const id = selection.node.id;
@@ -126,8 +142,46 @@ const StoryEditorPage = ({ story }) => {
       updateEdge(story.id, id, {
         texte: edgeTitle,
         edgeType,
-        historyKey: historyKey || null,
+        historyKey: historyKey?.trim() || null,
       });
+    }
+  };
+
+  const handleEdgeTitleChange = (value) => {
+    setEdgeTitle(value);
+    if (isEdgeSelected) {
+      setEdgesState((current) =>
+        current.map((e) => (e.id === selection.edge.id ? { ...e, label: value } : e))
+      );
+      updateSelectionData();
+    }
+  };
+
+  const handleEdgeTypeChange = (value) => {
+    setEdgeType(value);
+    if (isEdgeSelected) {
+      setEdgesState((current) =>
+        current.map((e) =>
+          e.id === selection.edge.id
+            ? { ...e, data: { ...e.data, edgeType: value }, edgeType: value }
+            : e
+        )
+      );
+      updateSelectionData();
+    }
+  };
+
+  const handleHistoryKeyChange = (value) => {
+    setHistoryKey(value);
+    if (isEdgeSelected) {
+      setEdgesState((current) =>
+        current.map((e) =>
+          e.id === selection.edge.id
+            ? { ...e, data: { ...e.data, historyKey: value || null } }
+            : e
+        )
+      );
+      updateSelectionData();
     }
   };
 
@@ -257,16 +311,43 @@ const StoryEditorPage = ({ story }) => {
           <div className="inputs-flex-container-1">
             {isEdgeSelected && (
               <div className="inputs-flex-container-2">
+                <div className="inputs-flex-container-3">
+                  <label htmlFor="edge-title">Texte du choix</label>
+                </div>
                 <input
-                  id="node-title"
+                  id="edge-title"
                   className="choice-name"
-                  placeholder="Ecrire..."
+                  placeholder="Texte affiché sur la branche"
                   value={edgeTitle}
-                  onChange={(e) => {
-                    setEdgeTitle(e.target.value);
-                    handleNodeTitleChange(e.target.value);
-                  }}
+                  onChange={(e) => handleEdgeTitleChange(e.target.value)}
                 />
+                <label htmlFor="edge-type">Type de branche</label>
+                <select
+                  id="edge-type"
+                  value={edgeType}
+                  onChange={(e) => handleEdgeTypeChange(e.target.value)}
+                >
+                  <option value="regular">Par défaut (aucun suivi)</option>
+                  <option value="history">Historique (ajoute une clé)</option>
+                  <option value="conditional">
+                    Conditionnelle (requiert une clé)
+                  </option>
+                </select>
+                {(edgeType === "history" || edgeType === "conditional") && (
+                  <>
+                    <label htmlFor="edge-history-key">Identifiant de clé</label>
+                    <input
+                      id="edge-history-key"
+                      placeholder="Ex: cle-secrete-1"
+                      value={historyKey}
+                      onChange={(e) => handleHistoryKeyChange(e.target.value)}
+                    />
+                    <p className="editor-hint">
+                      Utilisé pour ajouter la clé à l&apos;inventaire (type
+                      historique) ou vérifier sa possession (type conditionnel).
+                    </p>
+                  </>
+                )}
               </div>
             )}
             {isNodeSelected && (
@@ -301,7 +382,7 @@ const StoryEditorPage = ({ story }) => {
               <p>Fin</p>
               <CustomSwitch
                 checked={isEnding}
-                onChange={() => setIsEnding((v) => !v)}
+                onChange={handleToggleEnding}
                 disabled={!isNodeSelected || isStartNode}
               />
             </div>

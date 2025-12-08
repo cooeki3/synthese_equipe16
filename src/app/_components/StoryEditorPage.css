@@ -75,7 +75,8 @@ html {
 }
 
 textarea,
-input {
+input,
+select {
   transition: all 0.2s ease-out;
   margin-bottom: 20px;
   border: 1px solid var(--translucent-purple);
