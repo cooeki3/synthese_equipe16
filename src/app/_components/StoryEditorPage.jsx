@@ -480,22 +480,6 @@ const StoryEditorPage = ({ story }) => {
               </div>
             )}
           </div>
-          {isNodeSelected && (
-            <div className="switch-container">
-              <p>Fin</p>
-              <CustomSwitch
-                checked={isEnding}
-                onChange={handleToggleEnding}
-                disabled={!isNodeSelected || isStartNode}
-              />
-            </div>
-          )}
-
-          {(isEdgeSelected || isNodeSelected) && (
-            <button className="btn btn-editor-appliquer" onClick={handleApply}>
-              Appliquer
-            </button>
-          )}
         </div>
 
         {imagePickerIsOpen && (
