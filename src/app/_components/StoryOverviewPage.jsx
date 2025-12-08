@@ -20,6 +20,7 @@ const StoryOverviewPage = ({ story }) => {
     authorName = "Auteur inconnu",
     authorId,
     startNodeId,
+    theme
   } = story ?? {};
 
   const readHref = startNodeId
@@ -28,6 +29,14 @@ const StoryOverviewPage = ({ story }) => {
   const authorHref = authorId
     ? `/profiles/user/${authorId}`
     : "/profiles/user/unknown";
+  const imageSrc = (() => {
+    const theme = story?.theme;
+    if (!theme) return "../../../img/placeholder.png";
+    if (theme.startsWith("http") || theme.startsWith("/") || theme.startsWith("./")) {
+      return theme;
+    }
+    return `../../../img/${theme}`;
+  })();
 
   return (
     <div className="overview-page-container">
@@ -45,9 +54,9 @@ const StoryOverviewPage = ({ story }) => {
             <div className="overview-flex-2">
               <div className="img-container">
                 <img
-                  src="../../../img/placeholder.png"
+                  src={imageSrc}
                   className="overview-img"
-                  alt=""
+                  alt={title || "Illustration de l'histoire"}
                 />
               </div>
               <div className="like-dislike-container">

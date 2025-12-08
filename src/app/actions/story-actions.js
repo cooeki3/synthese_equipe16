@@ -55,17 +55,23 @@ export async function createStory(formData) {
 }
 
 export async function updateStoryMeta(storyId, payload) {
-  await db
-    .update(Histoires)
-    .set({
-      title: payload.title,
-      synopsis: payload.synopsis,
-      theme: payload.theme ?? null,
-      musique: payload.ambiance ?? payload.musique ?? null,
-      animation: payload.textEffect ?? payload.animation ?? null,
-      is_published: payload.isPublished,
-    })
-    .where(eq(Histoires.id, storyId));
+  const updates = {
+    title: payload.title,
+    synopsis: payload.synopsis,
+    is_published: payload.isPublished,
+  };
+
+  if ("theme" in payload) {
+    updates.theme = payload.theme ?? null;
+  }
+  if ("ambiance" in payload || "musique" in payload) {
+    updates.musique = payload.ambiance ?? payload.musique ?? null;
+  }
+  if ("textEffect" in payload || "animation" in payload) {
+    updates.animation = payload.textEffect ?? payload.animation ?? null;
+  }
+
+  await db.update(Histoires).set(updates).where(eq(Histoires.id, storyId));
 }
 
 export async function createNode(storyId, node) {

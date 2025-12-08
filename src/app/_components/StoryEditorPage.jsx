@@ -230,6 +230,9 @@ const StoryEditorPage = ({ story }) => {
       isPublished: true,
       title: story.title,
       synopsis: story.synopsis,
+      theme: story.theme,
+      ambiance: story.musique,
+      textEffect: story.animation,
     });
     setIsPublished(true);
   };
@@ -240,6 +243,9 @@ const StoryEditorPage = ({ story }) => {
       isPublished: false,
       title: story.title,
       synopsis: story.synopsis,
+      theme: story.theme,
+      ambiance: story.musique,
+      textEffect: story.animation,
     });
     setIsPublished(false);
   };

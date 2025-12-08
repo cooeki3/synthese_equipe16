@@ -21,6 +21,14 @@ const truncate = (value, max = 180) => {
   return `${value.slice(0, max)}…`;
 };
 
+const resolveImage = (theme) => {
+  if (!theme) return "../../../img/placeholder.png";
+  if (theme.startsWith("http") || theme.startsWith("/") || theme.startsWith("./")) {
+    return theme;
+  }
+  return `../../../img/${theme}`;
+};
+
 const MyProfilePage = ({
   userName = "Mon profil",
   profileImage = "../../../img/account_icon.svg",
@@ -90,9 +98,9 @@ const MyProfilePage = ({
                     <div className="card">
                       <div className="img-container">
                         <img
-                          src="../../../img/placeholder.png"
+                          src={resolveImage(story.theme)}
                           className="slide-img"
-                          alt=""
+                          alt={story.title || "Illustration du récit"}
                         />
                         <div className="swiper-buttons-flex-container">
                           <Link
@@ -160,9 +168,9 @@ const MyProfilePage = ({
                     <div className="card">
                       <div className="img-container">
                         <img
-                          src="../../../img/placeholder.png"
+                          src={resolveImage(story.theme)}
                           className="slide-img"
-                          alt=""
+                          alt={story.title || "Illustration du brouillon"}
                         />
                         <div className="swiper-buttons-flex-container">
                           <Link
