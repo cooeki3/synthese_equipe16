@@ -452,36 +452,21 @@ const StoryEditorPage = ({ story }) => {
 
                 <div className="switch-container">
                   <p>Fin</p>
-                  <CustomSwitch
-                    checked={isEnding}
-                    onChange={() => setIsEnding((v) => !v)}
-                    disabled={!isNodeSelected || isStartNode}
-                  />
-                </div>
-
-                <button className="btn btn-editor-appliquer" onClick={handleApply}>
-                  Appliquer
-                </button>
-              </div>
-            )}
-          </div>
-          {isNodeSelected && (
-            <div className="switch-container">
-              <p>Fin</p>
               <CustomSwitch
                 checked={isEnding}
-                onChange={handleToggleEnding}
+                onChange={() => setIsEnding((v) => !v)}
                 disabled={!isNodeSelected || isStartNode}
               />
             </div>
-          )}
-
-          {(isEdgeSelected || isNodeSelected) && (
-            <button className="btn btn-editor-appliquer" onClick={handleApply}>
-              Appliquer
-            </button>
-          )}
-        </div>
+          </div>
+        )}
+        {(isNodeSelected || isEdgeSelected) && (
+          <button className="btn btn-editor-appliquer" onClick={handleApply}>
+            Appliquer
+          </button>
+        )}
+      </div>
+    </div>
 
         {imagePickerIsOpen && (
           <div className="popup-container">
