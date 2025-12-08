@@ -48,6 +48,7 @@ const StoryEditorPage = ({ story }) => {
   const [imagePickerIsOpen, setImagePickerIsOpen] = useState(false);
   const [ambianceIsOpen, setAmbianceIsOpen] = useState(false);
   const [effectIsOpen, setEffectIsOpen] = useState(false);
+  const [isPublished, setIsPublished] = useState(!!story.is_published);
   const ambiancePopupRef = useRef();
   const effectPopupRef = useRef();
   const imagePickerPopupRef = useRef();
@@ -223,12 +224,24 @@ const StoryEditorPage = ({ story }) => {
     }
   };
 
-  const handlePublish = () => {
+  const handlePublishStory = () => {
+    if (isPublished) return;
     updateStoryMeta(story.id, {
-      isPublished: !story.is_published,
+      isPublished: true,
       title: story.title,
       synopsis: story.synopsis,
     });
+    setIsPublished(true);
+  };
+
+  const handleSaveDraft = () => {
+    if (!isPublished) return;
+    updateStoryMeta(story.id, {
+      isPublished: false,
+      title: story.title,
+      synopsis: story.synopsis,
+    });
+    setIsPublished(false);
   };
 
 
@@ -612,12 +625,20 @@ const StoryEditorPage = ({ story }) => {
         </button>
       </div>
       <div className="publish-container">
-        <button className="draft-button" onClick={handlePublish}>
-          Enregistrer comme brouillon
+        <button
+          className="draft-button"
+          onClick={handleSaveDraft}
+          disabled={!isPublished}
+        >
+          {isPublished ? "Mettre en brouillon" : "Déjà en brouillon"}
         </button>
         <Link href="/">
-          <button className="publish-button" onClick={handlePublish}>
-            {story.is_published ? "Remettre en brouillon" : "Publier"}
+          <button
+            className="publish-button"
+            onClick={handlePublishStory}
+            disabled={isPublished}
+          >
+            {isPublished ? "Histoire déjà publiée" : "Publier"}
           </button>
         </Link>
       </div>
