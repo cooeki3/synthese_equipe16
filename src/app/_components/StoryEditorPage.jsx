@@ -60,6 +60,8 @@ const StoryEditorPage = ({ story }) => {
   const isNodeSelected = selection?.type === "node" && selection.node;
   const isEdgeSelected = selection?.type === "edge" && selection.edge;
   const isStartNode = isNodeSelected && selection.node.data?.nodeType === "start";
+  const showFieldConditional = edgeType == "conditional";
+  const showFieldHistory = edgeType == "history";
 
   useEffect(() => {
     if (isNodeSelected) {
@@ -360,7 +362,7 @@ const StoryEditorPage = ({ story }) => {
   }, [nodes, edges, internals, nodeTypes]);
 
   return (
-    <div className="page-container">
+    <div className="storyeditor-page-container">
       <Nav />
       <div className="nav-bg"></div>
 
@@ -370,42 +372,55 @@ const StoryEditorPage = ({ story }) => {
             {isEdgeSelected && (
               <div className="inputs-flex-container-2">
                 <div className="inputs-flex-container-3">
-                  <label htmlFor="edge-title">Texte du choix</label>
+                  <label className="storyvisualizer-label" htmlFor="node-text">Nom du choix *</label>
+                  <input
+                    id="node-title"
+                    className="choice-name"
+                    placeholder="Ecrire..."
+                    value={edgeTitle}
+                    onChange={(e) => {
+                      setEdgeTitle(e.target.value);
+                      handleNodeTitleChange(e.target.value);
+                    }}
+                  />
                 </div>
-                <input
-                  id="edge-title"
-                  className="choice-name"
-                  placeholder="Texte affiché sur la branche"
-                  value={edgeTitle}
-                  onChange={(e) => handleEdgeTitleChange(e.target.value)}
-                />
-                <label htmlFor="edge-type">Type de branche</label>
-                <select
-                  id="edge-type"
-                  value={edgeType}
-                  onChange={(e) => handleEdgeTypeChange(e.target.value)}
-                >
-                  <option value="regular">Par défaut (aucun suivi)</option>
-                  <option value="history">Historique (ajoute une clé)</option>
-                  <option value="conditional">
-                    Conditionnelle (requiert une clé)
-                  </option>
-                </select>
-                {(edgeType === "history" || edgeType === "conditional") && (
-                  <>
-                    <label htmlFor="edge-history-key">Identifiant de clé</label>
-                    <input
-                      id="edge-history-key"
-                      placeholder="Ex: cle-secrete-1"
-                      value={historyKey}
-                      onChange={(e) => handleHistoryKeyChange(e.target.value)}
+                <div className="inputs-flex-container-5">
+                  <div className="inputs-flex-container-3">
+                    <label className="storyvisualizer-label" htmlFor="node-text">Type de choix</label>
+                    <EdgeTypeToggle
+                      value={edgeType}
+                      onChange={setEdgeType}
                     />
-                    <p className="editor-hint">
-                      Utilisé pour ajouter la clé à l&apos;inventaire (type
-                      historique) ou vérifier sa possession (type conditionnel).
-                    </p>
-                  </>
-                )}
+                  </div>
+                </div>
+                {showFieldConditional &&
+                  <div className="inputs-flex-container-2">
+                    <div className="inputs-flex-container-3">
+                      <label className="storyvisualizer-label" htmlFor="node-text">Identifiant requis</label>
+                      <input
+                        className="choice-name"
+                        placeholder="Ecrire..."
+                      />
+                      <p className="storyvisualization-history-conditional-fields">     Ce choix ne s'affichera que si le joueur a préalablement sélectionné un choix <span>Historique</span> avec le même identifiant (ex: il faut d'abord ramasser la clé pour pouvoir l'utiliser).</p>
+                    </div>
+                  </div>
+                }
+                {showFieldHistory &&
+                  <div className="inputs-flex-container-2">
+                    <div className="inputs-flex-container-3">
+                      <label className="storyvisualizer-label" htmlFor="node-text">Identifiant unique</label>
+                      <input
+                        className="choice-name"
+                        placeholder="Ecrire..."
+                      />
+                      <p className="storyvisualization-history-conditional-fields"> Ce choix enregistrera cet identifiant dans l'historique du joueur. Vous pourrez ensuite utiliser ce même identifiant dans un choix <span>Conditionnel</span> pour créer des conséquences (ex: ramasser une clé, puis l'utiliser plus tard).</p>
+                    </div>
+                  </div>
+                }
+
+                <button className="btn btn-editor-appliquer" onClick={handleApply}>
+                  Appliquer
+                </button>
               </div>
             )}
             {isNodeSelected && (
@@ -452,21 +467,20 @@ const StoryEditorPage = ({ story }) => {
 
                 <div className="switch-container">
                   <p>Fin</p>
-              <CustomSwitch
-                checked={isEnding}
-                onChange={() => setIsEnding((v) => !v)}
-                disabled={!isNodeSelected || isStartNode}
-              />
-            </div>
+                  <CustomSwitch
+                    checked={isEnding}
+                    onChange={() => setIsEnding((v) => !v)}
+                    disabled={!isNodeSelected || isStartNode}
+                  />
+                </div>
+
+                <button className="btn btn-editor-appliquer" onClick={handleApply}>
+                  Appliquer
+                </button>
+              </div>
+            )}
           </div>
-        )}
-        {(isNodeSelected || isEdgeSelected) && (
-          <button className="btn btn-editor-appliquer" onClick={handleApply}>
-            Appliquer
-          </button>
-        )}
-      </div>
-    </div>
+        </div>
 
         {imagePickerIsOpen && (
           <div className="popup-container">
@@ -607,7 +621,6 @@ const StoryEditorPage = ({ story }) => {
           </button>
         </Link>
       </div>
-      <Footer />
     </div>
   );
 }

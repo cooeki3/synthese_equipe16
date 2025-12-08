@@ -23,6 +23,11 @@ body {
   height: auto;
 }
 
+.react-flow__node {
+  border: 0.5px solid var(--primary-text-color) !important;
+  border-radius: 20px !important;
+}
+
 @font-face {
   font-style: normal;
   font-weight: 400;

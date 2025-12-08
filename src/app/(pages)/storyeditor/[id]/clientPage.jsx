@@ -123,7 +123,7 @@ const ClientPage = ({ story }) => {
           </ReactFlow>
         </div>
 
-        <div style={{ flex: 1, border: "1px solid #ccc", padding: 12 }}>
+        <div style={{ flex: 1, border: "1px solid #ccc", padding: 12, backgroundColor: "Red" }}>
           <h3>{story.title}</h3>
           <p>{story.synopsis}</p>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>

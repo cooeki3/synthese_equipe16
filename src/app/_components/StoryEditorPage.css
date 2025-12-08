@@ -8,8 +8,8 @@
   height: 110px;
 }
 
-html {
-  overflow: hidden;
+.storyeditor-page-container {
+  overflow-y: hidden;
 }
 
 .flex-container-toolbar {
@@ -510,5 +510,14 @@ label {
 
 .storyvisualizer-label {
   margin-bottom: 10px;
+}
 
+.storyvisualization-history-conditional-fields {
+  color: var(--secondary-text-color);
+  margin-top: 10px;
+  font-size: 15px;
+
+  span {
+    color: var(--purple);
+  }
 }
