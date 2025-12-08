@@ -31,6 +31,47 @@ export async function getRecentPublished(limit = 6) {
     .limit(limit);
 }
 
+export async function getStoriesByAuthor(authorId) {
+  if (!authorId) return [];
+
+  const stories = await db
+    .select()
+    .from(Histoires)
+    .where(eq(Histoires.creator_id, authorId))
+    .orderBy(desc(Histoires.created_at));
+
+  const result = [];
+
+  for (const story of stories) {
+    const [startNode] = await db
+      .select({ id: Nodes.id })
+      .from(Nodes)
+      .where(and(eq(Nodes.histoire_id, story.id), eq(Nodes.type, "start")))
+      .limit(1);
+
+    let startNodeId = startNode?.id ?? null;
+    if (!startNodeId) {
+      const [firstNode] = await db
+        .select({ id: Nodes.id })
+        .from(Nodes)
+        .where(eq(Nodes.histoire_id, story.id))
+        .limit(1);
+      startNodeId = firstNode?.id ?? null;
+    }
+
+    result.push({
+      id: story.id,
+      title: story.title,
+      synopsis: story.synopsis,
+      theme: story.theme,
+      isPublished: story.is_published,
+      startNodeId,
+    });
+  }
+
+  return result;
+}
+
 export async function getStoryGraph(storyId) {
   const nodes = await db
     .select()

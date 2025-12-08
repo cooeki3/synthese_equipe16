@@ -8,6 +8,14 @@ const truncate = (value, max = 180) => {
   return `${value.slice(0, max)}…`;
 };
 
+const resolveImage = (theme) => {
+  if (!theme) return "../../../img/placeholder.png";
+  if (theme.startsWith("http") || theme.startsWith("/") || theme.startsWith("./")) {
+    return theme;
+  }
+  return `../../../img/${theme}`;
+};
+
 const RecemmentPubliees = ({ stories = [] }) => {
   if (!stories.length) {
     return (
@@ -36,9 +44,9 @@ const RecemmentPubliees = ({ stories = [] }) => {
                 <div className="card">
                   <div className="img-container">
                     <img
-                      src="../../../img/placeholder.png"
+                      src={resolveImage(story.theme)}
                       className="slide-img"
-                      alt=""
+                      alt={story.title || "Illustration de l'histoire"}
                     />
                     <div className="swiper-buttons-flex-container">
                       <Link
