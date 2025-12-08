@@ -145,11 +145,11 @@ p.overview-synopsis {
   cursor: pointer;
   font-weight: 700;
 }
-
+/* 
 hr {
   margin: 100px 0;
   color: #b8b8b8;
-}
+} */
 
 .button-container {
   display: flex;

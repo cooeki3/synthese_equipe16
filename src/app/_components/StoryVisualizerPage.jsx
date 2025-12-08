@@ -12,10 +12,16 @@ import WestIcon from '@mui/icons-material/West';
 
 import "@/app/_components/Nav.css"
 import "@/app/_components/StoryVisualizerPage.css"
+import { clone } from "better-auth/*";
 gsap.registerPlugin(useGSAP, SplitText);
 
 export default function storyvisualizerclient({ story, current, edges, storyId, textEffect = "2", ambiance = "2", isStoryEnd, isChoiceAsked }) {
     const [choiceIsOpen, setChoiceIsOpen] = useState(false);
+    const [selectedChoice, setSelectedChoice] = useState(false);
+    const [isConfirmed, setIsConfirmed] = useState(null);
+    const [clonedElement, setClonedElement] = useState(null);
+    const clonedRef = useRef(null);
+    const choiceRefs = useRef({});
     const choicePopupRef = useRef();
     const storyTextRef = useRef();
     const backgroundRef = useRef();
@@ -121,6 +127,53 @@ export default function storyvisualizerclient({ story, current, edges, storyId, 
         }
     }, { dependencies: [ambiance, textEffect, current?.id] });
 
+
+
+    const handleChoiceClick = (e, edgeId) => {
+        e.preventDefault();
+        if (!alreadyClicked) {
+            const clickedElement = choiceRefs.current[edgeId];
+            const allChoices = edges.map(edge => choiceRefs.current[edge.id]);
+            const clone = clickedElement.cloneNode(true);
+            choicePopupRef.current.appendChild(clone);
+            clone.classList.add("clone")
+            clonedRef.current = clone;
+
+            let tl = gsap.timeline();
+
+            tl.to(allChoices, {
+                opacity: 0,
+                duration: 0.1,
+                filter: "blur(5px)",
+                ease: "none"
+            });
+            tl.to(".storyvisualizer-hr", {
+                opacity: 0,
+                duration: 0.1,
+                filter: "blur(5px)",
+                ease: "none"
+            }, "<");
+            tl.to(clonedRef.current, {
+                opacity: 1,
+                filter: "blur(0px)",
+                duration: 0.4,
+                ease: "power4.in"
+            }, "<-0.2")
+            tl.to(clonedRef.current, {
+                scale: 1.5,
+                duration: 0.6,
+                ease: "power2.out"
+            }, "<")
+
+            alreadyClicked = true;
+        }
+        else {
+            //voir comment faire lorsque le bouton x est peser, revert eveythng back
+        }
+    }
+
+
+
     const openChoicePopup = (e) => {
         e.preventDefault();
         setChoiceIsOpen(true);
@@ -143,13 +196,20 @@ export default function storyvisualizerclient({ story, current, edges, storyId, 
             </Link>
             <h1 className="storyvisualizer-title">{story.title}</h1>
             <p className="storyvisualizer-text" ref={storyTextRef}>{current.contenu || "Contenu du nœud"}</p>
+
+            <div className={choiceIsOpen ? "backdrop-blur open" : "backdrop-blur"} />
+
+
             <div
                 className={choiceIsOpen ? "storyvisualizer-choices-container opened" : "storyvisualizer-choices-container"}
                 ref={choicePopupRef}>
                 {edges.map((edge) => (
                     <a
-                        className="storyvisualizer-choices"
+                        className={`storyvisualizer-choices ${selectedChoice === edge.id ? 'selected' : ''}`}
                         key={edge.id}
+                        ref={(e) => (choiceRefs.current[edge.id] = e
+                        )}
+                        onClick={(e) => handleChoiceClick(e, edge.id)}
                         href={"/storyvisualizer/" + storyId + "/" + edge.target}
                     >
                         {edge.texte || "Choix"}
