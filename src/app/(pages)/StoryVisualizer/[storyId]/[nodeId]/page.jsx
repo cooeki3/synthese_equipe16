@@ -1,47 +1,53 @@
-import { db } from "@/db";
-import { Histoires, Nodes, Branches } from "@/db/schemas/schema";
-import { eq, and } from "drizzle-orm";
 import { notFound } from "next/navigation";
+import StoryVisualizerPage from "@/app/_components/StoryVisualizerPage.jsx";
+import { getStoryInfoById, getNodeInfoById } from "@/app/_data/histoires.js";
 
-export default async function NodeView({ params }) {
-  const story = await db.query.Histoires.findFirst({
-    where: eq(Histoires.id, params.storyId),
-  });
-  if (!story || !story.is_published) return notFound();
+const NodeView = async ({ params }) => {
+  //Récupère le id de l'histoire et du noeud
+  const { storyId, nodeId } = await params;
 
-  const node = await db
-    .select()
-    .from(Nodes)
-    .where(and(eq(Nodes.histoire_id, params.storyId), eq(Nodes.id, params.nodeId)))
-    .limit(1);
-  if (!node.length) return notFound();
+  // Récupère les info des histoire
+  const storyInfo = await getStoryInfoById(storyId);
+  if (!storyInfo) return notFound();
 
-  const edges = await db
-    .select()
-    .from(Branches)
-    .where(eq(Branches.source, params.nodeId));
+  // Récupère les info dans les noeuds et les branches
+  const nodeData = await getNodeInfoById(nodeId);
+  console.log(nodeData);
+  if (!nodeData) return notFound();
 
-  const current = node[0];
+  //Créé les données pour les afficher dans la page storyvisualization
+  const story = {
+    id: storyInfo.id,
+    title: storyInfo.title,
+  };
+
+  //Le noeud que l'utilisateur lit en ce moment
+  const current = nodeData.node;
+
+  //Passer seulement le contenu utile à la page storyvisualization
+  const edges = nodeData.branches.map(branch => ({
+    id: branch.id,
+    texte: branch.texte,
+    type: branch.type,
+    target: branch.targetNodeId,
+  }));
+
+  //Est-ce qu'il y a un choix à faire? (Sinon, ne pas afficher les choix, passer au prochains noeuds directement)
+  const isChoiceAsked = edges.length === 1;
+
+  //Est-ce que c'est le dernier noeud?
+  const isStoryEnd = (current.is_ending === true);
 
   return (
-    <div style={{ padding: 24 }}>
-      <h1>{story.title}</h1>
-      <h2>{current.titre || "Étape"}</h2>
-      <p>{current.contenu || "Contenu du nœud"}</p>
-
-      {edges.length === 0 && <p>Fin de l'histoire.</p>}
-
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        {edges.map((edge) => (
-          <a
-            key={edge.id}
-            href={`/storyVisualizer/${params.storyId}/${edge.target}`}
-            style={{ padding: 8, border: "1px solid #ccc", borderRadius: 4 }}
-          >
-            {edge.texte || "Choix"}
-          </a>
-        ))}
-      </div>
-    </div>
+    <StoryVisualizerPage
+      story={story}
+      current={current}
+      edges={edges}
+      storyId={storyId}
+      isStoryEnd={isStoryEnd}
+      isChoiceAsked={isChoiceAsked}
+    />
   );
-}
+};
+
+export default NodeView;
