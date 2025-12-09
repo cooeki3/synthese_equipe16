@@ -3,7 +3,6 @@ import { getSession } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
 const Signin = async () => {
-  // Si l'utilisateur est déjà connecté, rediriger vers la page d'accueil
   const session = await getSession();
   if (session) {
     redirect("/");

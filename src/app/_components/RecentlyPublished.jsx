@@ -36,12 +36,18 @@ const RecemmentPubliees = ({ stories = [] }) => {
         <div className="swiper">
           <div className="swiper-wrapper">
             {stories.map((story, index) => (
+
               <div
                 className={`swiper-slide ${index === 0 ? "swiper-first-slide" : ""
                   } ${index === stories.length - 1 ? "swiper-last-slide" : ""}`}
                 key={story.id}
               >
                 <div className="card">
+                  <Link
+                    href={`/storyoverview/${story.id}`}
+                    className="card-overlay"
+                    aria-label={`Lire ${story.title}`}
+                  />
                   <div className="img-container">
                     <img
                       src={resolveImage(story.theme)}
@@ -59,13 +65,11 @@ const RecemmentPubliees = ({ stories = [] }) => {
                       </Link>
                     </div>
                   </div>
-                  <div className="tags">
-                    <span>{story.theme || "Public"}</span>
-                  </div>
                   <h3>{story.title}</h3>
                   <p className="swiper-synopsis">{truncate(story.synopsis)}</p>
                 </div>
               </div>
+
             ))}
           </div>
         </div>

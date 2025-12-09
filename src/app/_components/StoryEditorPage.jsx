@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import gsap from "gsap";
 import { useEffect, useMemo, useState, useRef } from "react";
 import { useGrid } from "../_context/gridContext";
 import Footer from "./Footer.jsx";
@@ -26,6 +27,7 @@ import "@/app/_components/Nav.css";
 import "@/app/_components/Footer.css";
 import "@/app/_components/MainPageClient.css";
 import "@/app/_components/StoryEditorPage.css";
+import { useGSAP } from "@gsap/react";
 
 const StoryEditorPage = ({ story }) => {
   const {
@@ -56,6 +58,7 @@ const StoryEditorPage = ({ story }) => {
   const preview2Ref = useRef(null);
   const preview3Ref = useRef(null);
   const previewTlRef = useRef(null);
+  const toolbarRef = useRef();
 
 
   const isNodeSelected = selection?.type === "node" && selection.node;
@@ -257,13 +260,11 @@ const StoryEditorPage = ({ story }) => {
   const openImagePickerPopup = (e) => {
     e.preventDefault();
     setImagePickerIsOpen(true);
-    console.log("Image picker opened");
   };
 
   const closeImagePickerPopup = (e) => {
     e.preventDefault();
     setImagePickerIsOpen(false);
-    console.log("Image picker closed");
   };
   const openAmbiancePopup = (e) => {
     e.preventDefault();
@@ -286,10 +287,8 @@ const StoryEditorPage = ({ story }) => {
   };
 
   const previewButtonEnter = (textEffect, target, preview) => {
-
     previewTlRef.current = StoryCustomisation(target.current, preview, textEffect);
   };
-
 
   const previewButtonLeave = (ref) => {
 
@@ -298,7 +297,39 @@ const StoryEditorPage = ({ story }) => {
     }
   };
 
+  useGSAP(() => {
+    const tl = gsap.timeline();
 
+    if (isEdgeSelected || isNodeSelected) {
+      tl.to(toolbarRef.current, {
+        x: "0",
+        duration: 0.4,
+        ease: "power4.out",
+      })
+      gsap.set(".inputs-flex-container-2 > *",
+        {
+          opacity: 0,
+          y: -10
+        })
+      gsap.to(".inputs-flex-container-2 > *",
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power2.out",
+          stagger: 0.06,
+        },
+        "-=0.3"
+      );
+
+    } else {
+      tl.to(toolbarRef.current, {
+        x: "-600px",
+        duration: 0.5,
+        ease: "power4.out",
+      });
+    }
+  }, { dependencies: [isEdgeSelected, isNodeSelected], scope: toolbarRef });
 
 
 
@@ -386,7 +417,7 @@ const StoryEditorPage = ({ story }) => {
       <div className="nav-bg"></div>
 
       <div className="flex-container-toolbar">
-        <div className="tool-bar">
+        <div className="tool-bar" ref={toolbarRef}>
           <div className="inputs-flex-container-1">
             {isEdgeSelected && (
               <div className="inputs-flex-container-2">

@@ -56,7 +56,7 @@ const MyProfilePage = ({
   }, [publishedStories.length, draftStories.length]);
 
   return (
-    <div className="page-container">
+    <div className="myprofile-page-container">
       <img className="bg" src="../../../img/blue-purple_gradient.png" alt="" />
       <Nav />
 
@@ -86,16 +86,19 @@ const MyProfilePage = ({
 
                 return (
                   <div
-                    className={`swiper-slide ${
-                      index === 0 ? "swiper-first-slide" : ""
-                    } ${
-                      index === publishedStories.length - 1
+                    className={`swiper-slide ${index === 0 ? "swiper-first-slide" : ""
+                      } ${index === publishedStories.length - 1
                         ? "swiper-last-slide"
                         : ""
-                    }`}
+                      }`}
                     key={story.id}
                   >
                     <div className="card">
+                      <Link
+                        href={readHref}
+                        className="card-overlay"
+                        aria-label={`Lire ${story.title}`}
+                      />
                       <div className="img-container">
                         <img
                           src={resolveImage(story.theme)}
@@ -120,12 +123,7 @@ const MyProfilePage = ({
                           </Link>
                         </div>
                       </div>
-
-                      <div className="tags">
-                        <span>{story.theme || "Public"}</span>
-                      </div>
                       <h3>{story.title}</h3>
-
                       <p className="swiper-synopsis">
                         {truncate(story.synopsis)}
                       </p>
@@ -139,7 +137,7 @@ const MyProfilePage = ({
         )}
       </div>
 
-      <hr />
+      <hr className="profil-hr" />
 
       {/* SECTION Mes brouillons */}
       <div className="swiper-container">
@@ -156,13 +154,11 @@ const MyProfilePage = ({
                 const editHref = `/storyeditor/${story.id}`;
                 return (
                   <div
-                    className={`swiper-slide ${
-                      index === 0 ? "swiper-first-slide" : ""
-                    } ${
-                      index === draftStories.length - 1
+                    className={`swiper-slide ${index === 0 ? "swiper-first-slide" : ""
+                      } ${index === draftStories.length - 1
                         ? "swiper-last-slide"
                         : ""
-                    }`}
+                      }`}
                     key={story.id}
                   >
                     <div className="card">
@@ -182,12 +178,7 @@ const MyProfilePage = ({
                           </Link>
                         </div>
                       </div>
-
-                      <div className="tags">
-                        <span>{story.theme || "Brouillon"}</span>
-                      </div>
                       <h3>{story.title}</h3>
-
                       <p className="swiper-synopsis">
                         {truncate(story.synopsis)}
                       </p>

@@ -9,14 +9,14 @@ html {
   left: 50%;
   transform: translateX(-50%);
   z-index: -1;
+  width: 100vw;
 }
 
 .bg {
+  width: 100vw;
   position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: -1;
+  object-fit: cover;
 }
 
 .h1-header {

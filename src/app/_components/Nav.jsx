@@ -11,7 +11,6 @@ import { useGSAP } from "@gsap/react";
 import { usePathname } from 'next/navigation'
 gsap.registerPlugin(useGSAP, ScrollTrigger, CustomEase);
 
-// TODO: Afficher dynamiquement la photo de profil (fallback sur account_icon si GitHub absent).
 const Nav = ({ user: initialUser }) => {
   const [user, setUser] = useState(initialUser ?? null);
   const pathname = usePathname();
@@ -102,8 +101,6 @@ const Nav = ({ user: initialUser }) => {
       )}
 
       {isAuthenticated && (
-
-        // <ul className="nav-list nav-list-connected">
         <ul className={isVisualizerPage ? "nav-list nav-list-connected white" : "nav-list nav-list-connected"}>
           <li><a href="/"><img className="logo" src={isVisualizerPage ? "../../../img/logo_inkveil_white.png" : "../../../img/logo_inkveil.png"} alt="" /></a></li>
           <li>

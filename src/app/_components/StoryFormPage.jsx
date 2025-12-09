@@ -23,9 +23,9 @@ const StoryFormPage = ({ formAction, user = null }) => {
     const [bannerIsOpen, setBannerIsOpen] = useState(false);
     const [ambianceIsOpen, setAmbianceIsOpen] = useState(false);
     const [effectIsOpen, setEffectIsOpen] = useState(false);
-    const [selectedBanner, setSelectedBanner] = useState("banniere_1.jpg");
-    const [selectedAmbiance, setSelectedAmbiance] = useState("ambiance-magic");
-    const [selectedTextEffect, setSelectedTextEffect] = useState("effect-blur");
+    const [selectedBanner, setSelectedBanner] = useState();
+    const [selectedAmbiance, setSelectedAmbiance] = useState();
+    const [selectedTextEffect, setSelectedTextEffect] = useState();
     const bannerPopupRef = useRef();
     const ambiancePopupRef = useRef();
     const effectPopupRef = useRef();
@@ -78,15 +78,26 @@ const StoryFormPage = ({ formAction, user = null }) => {
     };
 
     const previewButtonEnter = (textEffect, target, preview) => {
-
-        previewTlRef.current = StoryCustomisation(target.current, preview, textEffect);
+        if (previewTlRef.current) {
+            previewTlRef.current.kill();
+        }
+        previewTlRef.current = StoryCustomisation(
+            target.current,
+            null,
+            () => { },
+            textEffect,
+            null,
+            preview
+        );
     };
 
-
     const previewButtonLeave = (ref) => {
-
+        if (previewTlRef.current) {
+            previewTlRef.current.kill();
+        }
         if (ref.current) {
             ref.current.innerHTML = ref.current.textContent;
+            gsap.set(ref.current, { clearProps: "all" });
         }
     };
 
@@ -260,16 +271,12 @@ const StoryFormPage = ({ formAction, user = null }) => {
                 }
 
                 <hr className="story-form-hr" />
-
                 <input type="hidden" name="banniere" value={selectedBanner} />
                 <input type="hidden" name="ambiance" value={selectedAmbiance} />
                 <input type="hidden" name="textEffect" value={selectedTextEffect} />
-
                 <button type="submit" className="btn-form btn-form-continue" >
                     Continuer
                 </button>
-
-
             </form >
             <div>
             </div>
