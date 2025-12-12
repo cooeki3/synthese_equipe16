@@ -4,8 +4,7 @@ import { getSession } from "@/lib/auth";
 import { getRecentPublished } from "./_data/histoires";
 
 export const metadata = {
-  title: "Web 5",
-  description: "Gabarit de départ - Web 5",
+  title: "Accueil - Inkveil.",
 };
 
 const HomePage = async () => {

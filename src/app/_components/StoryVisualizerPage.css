@@ -19,16 +19,17 @@
 
 .storyvisualizer-text {
   position: relative;
+  opacity: 0;
   z-index: 0;
   margin: 50 auto 0 auto;
-  width: 80vw;
+  width: 75vw;
   color: white;
   font-weight: 200;
   font-size: 30px;
   hyphens: manual;
   text-align: center;
   white-space: normal;
-  word-break: normal;
+  /* word-break: normal; */
   overflow-wrap: break-word;
 }
 

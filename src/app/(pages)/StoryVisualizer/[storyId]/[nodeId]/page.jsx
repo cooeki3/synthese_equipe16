@@ -1,5 +1,12 @@
 import StoryVisualizerPage from "@/app/_components/StoryVisualizerPage.jsx";
 import { getStoryInfoById, getNodeInfoById } from "@/app/_data/histoires.js";
+
+export async function generateMetadata({ params }) {
+  return {
+    title: "Lecture de " + " - Inkveil.",
+  };
+}
+
 const NodeView = async ({ params }) => {
   //Récupère le id de l'histoire et du noeud
   const { storyId, nodeId } = await params;

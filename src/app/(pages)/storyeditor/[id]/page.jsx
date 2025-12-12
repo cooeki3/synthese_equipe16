@@ -5,6 +5,13 @@ import { Histoires, Nodes, Branches } from "@/db/schemas/schema";
 import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({ params }) {
+  return {
+    title: story + " - Inkveil.",
+  };
+}
+
+
 const mapNode = (n) => ({
   id: n.id,
   type: "default",

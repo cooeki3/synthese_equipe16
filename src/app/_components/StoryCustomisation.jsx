@@ -6,6 +6,8 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(SplitText, useGSAP);
 
+
+
 const StoryCustomization = (
 
     storyText,
@@ -16,7 +18,6 @@ const StoryCustomization = (
     preview,
     isFirstNode,
 ) => {
-
 
     storyText.innerHTML = storyText.textContent;
 
@@ -91,13 +92,13 @@ const StoryCustomization = (
         });
     }
 
-    if (textEffect === "1" && isFirstNode) {
+    if (textEffect === "1") {
         const split = new SplitText(storyText, {
             type: "lines",
             wordsClass: "word"
         });
         const lines = split.lines;
-
+        gsap.set(storyText, { opacity: 1 })
         gsap.set(lines, {
             color: "#ffffff",
             opacity: 0,
@@ -113,12 +114,13 @@ const StoryCustomization = (
         });
     }
 
-    if (textEffect === "2" && isFirstNode) {
+    if (textEffect === "2") {
         const split = new SplitText(storyText, {
             type: "chars",
             type: "words,chars",
             wordsClass: "word"
         });
+        gsap.set(storyText, { opacity: 1 })
         gsap.from(split.chars, {
             opacity: 0,
             duration: 0.6,
@@ -127,12 +129,13 @@ const StoryCustomization = (
         });
     }
 
-    if (textEffect === "3" && isFirstNode) {
+    if (textEffect === "3") {
         const split = new SplitText(storyText, {
             type: "chars",
             type: "words,chars",
             wordsClass: "word"
         });
+        gsap.set(storyText, { opacity: 1 })
         gsap.set(split.chars, {
             opacity: 0,
             scale: 0

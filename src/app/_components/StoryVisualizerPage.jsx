@@ -39,8 +39,8 @@ const StoryVisualizerPage = ({
     const timelineRef = useRef(null);
     const { changeSource, play, isReady, changeVolume } = useAudio(false);
 
+    //Change le background, l'effet de texte et la musique.
     useEffect(() => {
-
         StoryCustomization(
             storyTextRef.current,
             backgroundRef.current,
@@ -53,12 +53,28 @@ const StoryVisualizerPage = ({
 
     }, [textEffect, current?.id, ambiance]);
 
-
-
-    const openChoiceConfirmation = (e, edgeId) => {
-        if (selectedChoice === edgeId) {
-            return;
+    //Change le volume de la musique
+    useEffect(() => {
+        if (isReady) {
+            changeVolume(0.03);
         }
+    }, [isReady, changeVolume]);
+
+
+    //Click handlers pour le popup de confirmation de choix
+    const openChoicePopup = (e) => {
+        e.preventDefault();
+        setChoiceIsOpen(true);
+    };
+
+    const closeChoicePopup = (e) => {
+        e.preventDefault();
+        setChoiceIsOpen(false);
+    };
+
+    //Ouvre le popup de confirmation de choix
+    const openChoiceConfirmation = (e, edgeId) => {
+        if (selectedChoice === edgeId) return;
         e.preventDefault();
 
         const clickedElement = choiceRefs.current[edgeId];
@@ -124,6 +140,7 @@ const StoryVisualizerPage = ({
         }, "<")
     }
 
+    //Ferme le popup de confirmation de choix
     const closeChoiceConfirmation = () => {
         setChoiceConfirmationIsOpen(false);
 
@@ -171,16 +188,6 @@ const StoryVisualizerPage = ({
         })
     };
 
-    const openChoicePopup = (e) => {
-        e.preventDefault();
-        setChoiceIsOpen(true);
-    };
-
-    const closeChoicePopup = (e) => {
-        e.preventDefault();
-        setChoiceIsOpen(false);
-    };
-
     return (
         <div className="storyvisualizer-page" ref={backgroundRef}>
             <Nav />
@@ -192,25 +199,19 @@ const StoryVisualizerPage = ({
             <h1 className="storyvisualizer-title">{story.title}</h1>
             <p className="storyvisualizer-text" ref={storyTextRef}>{current.contenu || "Contenu du nœud"}</p>
             <div className={choiceIsOpen ? "backdrop-blur open" : "backdrop-blur"} />
-            <div
-                className={"storyvisualizer-choices-container " + (choiceIsOpen ? "opened " : "") + "choice-" + edges.length}
-
+            <div className={"storyvisualizer-choices-container " + (choiceIsOpen ? "opened " : "") + "choice-" + edges.length}
                 ref={choicePopupRef}>
                 {edges.map((edge) => (
-                    <Link
+                    <div
                         className={`storyvisualizer-choices ${selectedChoice === edge.id ? 'selected' : ''}`}
                         key={edge.id}
                         ref={(e) => (choiceRefs.current[edge.id] = e
                         )}
                         onClick={(e) => {
                             openChoiceConfirmation(e, edge.id)
-                        }
-                        }
-                        href={"/storyvisualizer/" + storyId + "/" + edge.target}
-
-                    >
+                        }}>
                         {edge.texte || "Choix"}
-                    </Link>
+                    </div>
                 ))}
                 {edges.length < 3 && <hr className="storyvisualizer-hr" />
                 }
@@ -274,14 +275,11 @@ const StoryVisualizerPage = ({
                         zIndex: 9999,
                         cursor: 'pointer',
                         pointerEvents: 'all'
-                    }}
-                >
+                    }}>
                 </Link>
             )}
-
         </div>
     );
 }
 
 export default StoryVisualizerPage;
-
