@@ -64,8 +64,6 @@ const MainPageClient = ({ user, recentStories = [] }) => {
             <h2 className="h2-header">Faites briller votre univers</h2>
             <h1 className="h1-header">
               Donnez vie à votre récit
-
-
             </h1>
             <img className="main-bg" src="../../../img/Background_1.jpg" alt="" />
             <h3 className="h3-header">
@@ -75,10 +73,8 @@ const MainPageClient = ({ user, recentStories = [] }) => {
               <input
                 className="main-input"
                 placeholder="Le titre de votre histoire..."
-                required
-              />
-              <Link href="/storyform"
-              >
+                required />
+              <Link href="/storyform">
                 <div className="btn-input">
                   <EastIcon />
                 </div>
@@ -92,24 +88,6 @@ const MainPageClient = ({ user, recentStories = [] }) => {
       <hr />
       <ReprendreLecture />
       <Footer />
-
-      {/* <div style={{ width: 1000, height: 1000 }}>
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          onSelectionChange={onSelectionChange}
-          onConnect={onConnect}
-          // Multi-sélection désactivée pour simplifier votre travail
-          multiSelectionKeyCode={null}
-          // Suppression par le clavier désactivée pour simplifier votre travail
-          deleteKeyCode={null}
-          fitView
-        >
-          <Background variant={BackgroundVariant.Dots} />
-        </ReactFlow>
-      </div> */}
     </div>
   );
 };

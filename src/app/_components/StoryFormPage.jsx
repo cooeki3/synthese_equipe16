@@ -45,36 +45,30 @@ const StoryFormPage = ({ formAction, user = null }) => {
     const openBannerPopup = (e) => {
         e.preventDefault();
         setBannerIsOpen(true);
-        console.log("Banner opened")
     };
 
     const closeBannerPopup = (e) => {
         e.preventDefault();
         setBannerIsOpen(false);
-        console.log("Banner closed")
     };
     const openAmbiancePopup = (e) => {
         e.preventDefault();
         setAmbianceIsOpen(true);
-        console.log("Ambiance opened")
     };
 
     const closeAmbiancePopup = (e) => {
         e.preventDefault();
         setAmbianceIsOpen(false);
-        console.log("Ambiance closed")
     };
 
     const openEffectPopup = (e) => {
         e.preventDefault();
         setEffectIsOpen(true);
-        console.log("Ambiance opened")
     };
 
     const closeEffectPopup = (e) => {
         e.preventDefault();
         setEffectIsOpen(false);
-        console.log("Ambiance closed")
     };
 
     const previewButtonEnter = (textEffect, target, preview) => {
@@ -131,9 +125,6 @@ const StoryFormPage = ({ formAction, user = null }) => {
         }
         document.addEventListener("mousedown", handleClickOutside);
     })
-    console.log(selectedAmbiance)
-    console.log(selectedTextEffect)
-    console.log(selectedBanner)
 
     return (
         <div className="story-form-container">

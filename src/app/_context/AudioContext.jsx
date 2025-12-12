@@ -32,7 +32,8 @@ const AudioProvider = ({ children }) => {
   useEffect(() => {
     if (!audioRef.current) return;
 
-    const handleCanPlay = () => {;
+    const handleCanPlay = () => {
+      ;
       setReady(true);
     };
     audioRef.current.addEventListener("canplaythrough", handleCanPlay);

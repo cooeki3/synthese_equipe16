@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 import { useAudio } from "../_context/AudioContext.jsx";
-import { useRouter } from "next/navigation";
 
 import Nav from "@/app/_components/Nav.jsx";
 import CloseIcon from '@mui/icons-material/Close';
@@ -17,7 +16,6 @@ import "@/app/_components/StoryVisualizerPage.css"
 
 gsap.registerPlugin(useGSAP, SplitText);
 
-let hasAudioStarted = false;
 
 const StoryVisualizerPage = ({
     story,
@@ -40,69 +38,33 @@ const StoryVisualizerPage = ({
     const backgroundRef = useRef();
     const timelineRef = useRef(null);
     const { changeSource, play, isReady, changeVolume } = useAudio(false);
-    const router = useRouter();
 
     useEffect(() => {
-        if (!isFirstNode) return;
-        if (hasAudioStarted) return;
 
-        hasAudioStarted = true;
+        StoryCustomization(
+            storyTextRef.current,
+            backgroundRef.current,
+            changeSource,
+            textEffect,
+            ambiance,
+            false,
+            isFirstNode,
+        );
 
-        const fichierAudio =
-            ambiance === "1" ? "/audio/horror_ambiance.mp3" :
-                ambiance === "2" ? "/audio/magic_ambiance.mp3" :
-                    ambiance === "3" ? "/audio/medieval_ambiance.mp3" :
-                        null;
-
-        if (fichierAudio) {
-            changeSource(fichierAudio, false);
-            console.log("Loading audio once:", fichierAudio);
-        }
-    }, [isFirstNode, ambiance, changeSource]);
-
-    useEffect(() => {
-        if (isReady) {
-            changeVolume(0.1);
-        }
-    }, [isReady, changeVolume]);
-
-    useEffect(() => {
-        if (!isReady) return;
-        if (!isFirstNode) return;
-
-        play();
-        console.log("Playing audio");
-    }, [isReady, isFirstNode, play]);
-
-    useEffect(() => {
-        if (storyTextRef.current && backgroundRef.current) {
-            StoryCustomization(
-                storyTextRef.current,
-                backgroundRef.current,
-                null,
-                textEffect,
-                ambiance,
-                false,
-                false,
-                null
-            );
-        }
     }, [textEffect, current?.id, ambiance]);
 
 
 
     const openChoiceConfirmation = (e, edgeId) => {
         if (selectedChoice === edgeId) {
-
             return;
         }
+        e.preventDefault();
 
         const clickedElement = choiceRefs.current[edgeId];
         const allChoices = edges.map(edge => choiceRefs.current[edge.id]);
         const clone = clickedElement.cloneNode(true);
 
-
-        e.preventDefault();
         setSelectedChoice(edgeId);
         setChoiceConfirmationIsOpen(true);
 
@@ -115,7 +77,6 @@ const StoryVisualizerPage = ({
         choicePopupRef.current.appendChild(clone);
         clone.classList.add("clone")
         clonedRef.current = clone;
-
 
         let tl = gsap.timeline();
         timelineRef.current = tl;
@@ -241,8 +202,13 @@ const StoryVisualizerPage = ({
                         key={edge.id}
                         ref={(e) => (choiceRefs.current[edge.id] = e
                         )}
-                        onClick={(e) => openChoiceConfirmation(e, edge.id)}
-                        href={"/storyvisualizer/" + storyId + "/" + edge.target}>
+                        onClick={(e) => {
+                            openChoiceConfirmation(e, edge.id)
+                        }
+                        }
+                        href={"/storyvisualizer/" + storyId + "/" + edge.target}
+
+                    >
                         {edge.texte || "Choix"}
                     </Link>
                 ))}
@@ -294,6 +260,25 @@ const StoryVisualizerPage = ({
                     </div>
                 )
             )}
+
+            {selectedChoice && (
+                <Link
+                    href={"/storyvisualizer/" + storyId + "/" + edges.find(edge => edge.id === selectedChoice)?.target}
+                    className="overlay-navigation-link"
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        width: '100vw',
+                        height: '100vh',
+                        zIndex: 9999,
+                        cursor: 'pointer',
+                        pointerEvents: 'all'
+                    }}
+                >
+                </Link>
+            )}
+
         </div>
     );
 }

@@ -81,8 +81,8 @@
   }
 }
 
-.btn-form-add-ambiance,
-.btn-form-add-effect {
+.story-form-container .btn-form-add-ambiance,
+.story-form-container .btn-form-add-effect {
   position: relative;
   border: 1px solid var(--primary-text-color);
   width: 48%;

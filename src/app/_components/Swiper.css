@@ -75,7 +75,6 @@
   overflow: hidden;
   color: var(--secondary-text-color);
   font-size: 18px;
-  text-overflow: ellipsis;
 }
 
 .swiper-buttons-flex-container {

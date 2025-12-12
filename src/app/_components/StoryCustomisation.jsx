@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(SplitText, useGSAP);
 
 const StoryCustomization = (
+
     storyText,
     backgroundRef,
     changeSource,
@@ -14,16 +15,8 @@ const StoryCustomization = (
     ambiance,
     preview,
     isFirstNode,
-    hasStartedRef
 ) => {
 
-    // console.log("StoryCustomization appelée avec:");
-    // console.log("textEffect:", textEffect, "type:", typeof textEffect);
-    // console.log("ambiance:", ambiance, "type:", typeof ambiance);
-    // console.log("preview:", preview);
-    // console.log("storyText:", storyText);
-    // console.log("backgroundRef:", backgroundRef);
-    console.log("isFirstNode:", isFirstNode)
 
     storyText.innerHTML = storyText.textContent;
 
@@ -72,24 +65,33 @@ const StoryCustomization = (
     }
 
     if (ambiance === "1") {
+        if (isFirstNode) {
+            changeSource("../../../../audio/horror_ambiance.mp3", true);
+        }
         gsap.set(backgroundRef, {
             backgroundImage: "linear-gradient(135deg, #000000ff 0%, #4d0000ff 100%)",
         });
     }
 
     if (ambiance === "2") {
+        if (isFirstNode) {
+            changeSource("../../../../audio/magic_ambiance.mp3", true);
+        }
         gsap.set(backgroundRef, {
             backgroundImage: "linear-gradient(135deg, #7c00adff 0%, #d298e9ff 100%)",
         });
     }
 
     if (ambiance === "3") {
+        if (isFirstNode) {
+            changeSource("../../../../audio/medieval_ambiance.mp3", true);
+        }
         gsap.set(backgroundRef, {
             backgroundImage: "linear-gradient(135deg, #858585ff 0%, #ffcab2ff 100%)",
         });
     }
 
-    if (textEffect === "1") {
+    if (textEffect === "1" && isFirstNode) {
         const split = new SplitText(storyText, {
             type: "lines",
             wordsClass: "word"
@@ -111,7 +113,7 @@ const StoryCustomization = (
         });
     }
 
-    if (textEffect === "2") {
+    if (textEffect === "2" && isFirstNode) {
         const split = new SplitText(storyText, {
             type: "chars",
             type: "words,chars",
@@ -125,7 +127,7 @@ const StoryCustomization = (
         });
     }
 
-    if (textEffect === "3") {
+    if (textEffect === "3" && isFirstNode) {
         const split = new SplitText(storyText, {
             type: "chars",
             type: "words,chars",
